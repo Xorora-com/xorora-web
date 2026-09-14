@@ -10,6 +10,11 @@ import {
   BestAiAgentSaasArticle,
 } from "@/components/blog/posts/best-ai-agent-development-companies-saas-2026";
 import {
+  BEST_AI_SAAS_COMPARED_META,
+  BEST_AI_SAAS_COMPARED_SLUG,
+  BestAiSaasComparedArticle,
+} from "@/components/blog/posts/best-ai-saas-development-companies-compared-2026";
+import {
   BEST_AI_ANALYTICS_AMAZON_META,
   BEST_AI_ANALYTICS_AMAZON_SLUG,
   BestAiAnalyticsAmazonArticle,
@@ -72,6 +77,10 @@ export interface BlogArticleDefinition extends BlogArticleMeta {
 }
 
 const BLOG_ARTICLES: Record<string, BlogArticleDefinition> = {
+  [BEST_AI_SAAS_COMPARED_SLUG]: {
+    ...BEST_AI_SAAS_COMPARED_META,
+    Article: BestAiSaasComparedArticle,
+  },
   [BEST_AI_AGENT_COPILOTS_SLUG]: {
     ...BEST_AI_AGENT_COPILOTS_META,
     Article: BestAiAgentCopilotsArticle,
