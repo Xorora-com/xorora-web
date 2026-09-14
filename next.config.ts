@@ -13,11 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "cdn.simpleicons.org",
       },
     ],
-    // Prefer modern formats; keep high qualities allowed for text-heavy blog graphics.
-    formats: ["image/avif", "image/webp"],
-    qualities: [75, 85, 90, 95],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 2400],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // WebP over AVIF: AVIF softens sharp text in blog/feature graphics.
+    formats: ["image/webp"],
+    qualities: [75, 85, 90, 95, 100],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920, 2048, 2400],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 640, 750],
   },
   async redirects() {
     return [

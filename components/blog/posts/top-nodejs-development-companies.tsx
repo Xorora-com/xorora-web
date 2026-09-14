@@ -96,13 +96,7 @@ interface CompanyProfile {
   hrefLabel?: string;
 }
 
-function TextLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: ReactNode;
-}) {
+function TextLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <Link
       href={href}
@@ -632,16 +626,19 @@ export function TopNodejsArticle() {
         <table className="w-full min-w-[640px] border-collapse text-left">
           <thead>
             <tr className="bg-indigo-50">
-              {["Company", "Primary strength", "Typical engagement", "Pricing"].map(
-                (col) => (
-                  <th
-                    key={col}
-                    className="px-5 py-3.5 font-sans font-semibold text-[13px] text-fg3"
-                  >
-                    {col}
-                  </th>
-                ),
-              )}
+              {[
+                "Company",
+                "Primary strength",
+                "Typical engagement",
+                "Pricing",
+              ].map((col) => (
+                <th
+                  key={col}
+                  className="px-5 py-3.5 font-sans font-semibold text-[13px] text-fg3"
+                >
+                  {col}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -810,6 +807,7 @@ function CompanySection({ company }: { company: CompanyProfile }) {
             width={1200}
             height={675}
             sizes="(max-width: 1180px) 100vw, 760px"
+            quality={95}
             className="h-auto w-full object-cover object-top"
           />
           <figcaption className="sr-only">

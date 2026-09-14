@@ -79,13 +79,7 @@ interface CompanyProfile {
   hrefLabel?: string;
 }
 
-function TextLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: ReactNode;
-}) {
+function TextLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <Link
       href={href}
@@ -118,13 +112,14 @@ const COMPANIES: CompanyProfile[] = [
           production Django applications
         </TextLink>
         , not just prototypes that stall once real traffic and real data show
-        up. Its Django work covers custom web applications, Django REST Framework
-        APIs, database-driven admin systems, and Django paired with modern
-        frontends like React or Vue, alongside{" "}
+        up. Its Django work covers custom web applications, Django REST
+        Framework APIs, database-driven admin systems, and Django paired with
+        modern frontends like React or Vue, alongside{" "}
         <TextLink href={ROUTES.applicationModernization}>
           migrating and modernizing
         </TextLink>{" "}
-        existing Django codebases that have outgrown their original architecture.
+        existing Django codebases that have outgrown their original
+        architecture.
       </>,
       <>
         Django sits inside a broader{" "}
@@ -459,6 +454,7 @@ function CompanySection({ company }: { company: CompanyProfile }) {
             width={1200}
             height={675}
             sizes="(max-width: 1180px) 100vw, 760px"
+            quality={95}
             className="h-auto w-full object-cover object-top"
           />
           <figcaption className="sr-only">

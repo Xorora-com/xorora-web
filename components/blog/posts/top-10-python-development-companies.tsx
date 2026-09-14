@@ -781,6 +781,7 @@ function CompanySection({ company }: { company: CompanyProfile }) {
           width={1200}
           height={675}
           sizes="(max-width: 1180px) 100vw, 760px"
+          quality={95}
           className="h-auto w-full object-cover object-top"
         />
         <figcaption className="sr-only">

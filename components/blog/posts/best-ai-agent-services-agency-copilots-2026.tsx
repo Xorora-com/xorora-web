@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { GetQuoteButton } from "@/components/blog/post";
 import type { BlogArticleMeta } from "@/lib/blog/article-types";
+import { BLOG_FEATURE_IMAGE_QUALITY } from "@/lib/blog/image";
 import { ROUTES } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
@@ -592,7 +593,7 @@ function CompanySection({ company }: { company: CompanyProfile }) {
             width={1200}
             height={675}
             sizes="(max-width: 1180px) 100vw, 760px"
-            quality={90}
+            quality={BLOG_FEATURE_IMAGE_QUALITY}
             className="h-auto w-full object-cover object-top"
           />
           <figcaption className="sr-only">

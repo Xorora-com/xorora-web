@@ -134,10 +134,9 @@ function BlogCard({ post }: { post: BlogPost }) {
           fill
           quality={BLOG_FEATURE_IMAGE_QUALITY}
           sizes={BLOG_CARD_IMAGE_SIZES}
-          className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+          className="object-cover object-center"
         />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-[rgba(8,12,30,0.04)] to-[rgba(8,12,30,0.18)]" />
-        <span className="absolute top-3.5 left-3.5 rounded-pill border border-white/18 bg-[rgba(8,12,30,0.55)] px-[11px] py-[5px] font-mono text-[10.5px] text-white tracking-[0.08em] backdrop-blur-sm">
+        <span className="absolute top-3.5 left-3.5 rounded-pill border border-white/18 bg-[rgba(8,12,30,0.72)] px-[11px] py-[5px] font-mono text-[10.5px] text-white tracking-[0.08em]">
           {post.cat}
         </span>
       </div>

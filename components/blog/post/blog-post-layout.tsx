@@ -1,10 +1,7 @@
 import Image from "next/image";
 import { BlogNewsletter } from "@/components/blog/blog-newsletter";
 import type { BlogArticleMeta } from "@/lib/blog/article-types";
-import {
-  BLOG_FEATURE_IMAGE_QUALITY,
-  BLOG_HERO_IMAGE_SIZES,
-} from "@/lib/blog/image";
+import { BLOG_HERO_IMAGE_SIZES } from "@/lib/blog/image";
 import type { BlogPost } from "@/lib/blog/types";
 import { blogImageAlt, blogImageTitle } from "@/lib/image-seo";
 import { SITE_URL } from "@/lib/site-url";
@@ -61,7 +58,7 @@ export function BlogPostLayout({
               title={blogImageTitle(post.excerpt, post.cat)}
               fill
               priority
-              quality={BLOG_FEATURE_IMAGE_QUALITY}
+              unoptimized
               sizes={BLOG_HERO_IMAGE_SIZES}
               className="object-cover object-center"
             />

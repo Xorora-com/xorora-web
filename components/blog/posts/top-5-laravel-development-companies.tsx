@@ -91,13 +91,7 @@ interface CompanyProfile {
   hrefLabel?: string;
 }
 
-function TextLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: ReactNode;
-}) {
+function TextLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <Link
       href={href}
@@ -170,11 +164,10 @@ const COMPANIES: CompanyProfile[] = [
         track record specifically in Laravel matters most to you, weigh that
         against the other names here; if you want a full-stack AI-capable
         partner where Laravel is one strong, functioning part of a broader
-        engineering team,{" "}
-        <TextLink href={ROUTES.home}>get in touch</TextLink> for a scoping call
-        and a look at current project work. Companies that already have Laravel
-        developers in place and just need extra capacity can also use
-        Xorora&apos;s{" "}
+        engineering team, <TextLink href={ROUTES.home}>get in touch</TextLink>{" "}
+        for a scoping call and a look at current project work. Companies that
+        already have Laravel developers in place and just need extra capacity
+        can also use Xorora&apos;s{" "}
         <TextLink href={ROUTES.staffAugmentation}>staff augmentation</TextLink>{" "}
         model.
       </>
@@ -397,9 +390,9 @@ export function Top5LaravelArticle() {
       </p>
       <p className={cn(bodyClass, "mb-10")}>
         Laravel remains one of the most widely adopted PHP frameworks for
-        building secure, scalable web applications, and the gap between
-        &quot;a team that uses Laravel&quot; and &quot;a team with genuine
-        production Laravel depth&quot; is wider than most buyers expect.
+        building secure, scalable web applications, and the gap between &quot;a
+        team that uses Laravel&quot; and &quot;a team with genuine production
+        Laravel depth&quot; is wider than most buyers expect.
       </p>
 
       <h2 id="how-evaluated" className={h2Class}>
@@ -592,12 +585,11 @@ export function Top5LaravelArticle() {
       </div>
       <p className={bodyClass}>
         Every company here can write working Laravel code. What separates a good
-        hire from a costly mismatch is whether the team&apos;s model, region, and
-        depth actually line up with what your project needs, not just what a
+        hire from a costly mismatch is whether the team&apos;s model, region,
+        and depth actually line up with what your project needs, not just what a
         homepage claims. If you&apos;re scoping a Laravel project and want to
-        see{" "}
-        <TextLink href={ROUTES.ourWork}>recent work</TextLink> or talk through
-        architecture, Xorora&apos;s{" "}
+        see <TextLink href={ROUTES.ourWork}>recent work</TextLink> or talk
+        through architecture, Xorora&apos;s{" "}
         <TextLink href={ROUTES.engineering}>engineering team</TextLink> can walk
         through fit and provide a written estimate.
       </p>
@@ -648,6 +640,7 @@ function CompanySection({ company }: { company: CompanyProfile }) {
             width={1200}
             height={675}
             sizes="(max-width: 1180px) 100vw, 760px"
+            quality={95}
             className="h-auto w-full object-cover object-top"
           />
           <figcaption className="sr-only">
