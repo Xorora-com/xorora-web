@@ -11,6 +11,17 @@ export interface BlogSeedPost {
 
 export const BLOG_POSTS: BlogSeedPost[] = [
   {
+    slug: "complete-guide-custom-ai-services-smbs-2026",
+    cat: "Software Development",
+    title: "The Complete Guide to Custom AI Services for SMBs (2026)",
+    excerpt:
+      "A practical guide to custom AI development services for SMBs — workflow automation, software integration, evaluation criteria, and measurable outcomes.",
+    read: "11 min",
+    date: "Sep 14, 2026",
+    img: "/assets/blog/complete-guide-custom-ai-services-smbs-2026.png",
+    featured: true,
+  },
+  {
     slug: "best-ai-saas-development-companies-compared-2026",
     cat: "Software Development",
     title: "Best AI SaaS Development Companies Compared (2026)",
@@ -19,7 +30,6 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Sep 14, 2026",
     img: "/assets/blog/best-ai-saas-development-companies-compared-2026.png",
-    featured: true,
   },
   {
     slug: "best-ai-agent-services-agency-copilots-2026",
