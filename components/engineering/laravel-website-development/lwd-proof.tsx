@@ -7,7 +7,7 @@ const STATS = [
 export function LwdProof() {
   return (
     <section className="border-border border-b bg-white px-8 py-8">
-      <ul className="mx-auto m-0 flex max-w-[1180px] list-none flex-wrap items-center justify-center gap-x-10 gap-y-5 p-0 sm:justify-between">
+      <ul className="m-0 mx-auto flex max-w-[1180px] list-none flex-wrap items-center justify-center gap-x-10 gap-y-5 p-0 sm:justify-between">
         {STATS.map((stat) => (
           <li key={stat.label} className="flex min-w-0 items-baseline gap-3">
             <span className="font-extrabold font-sans text-[22px] text-xo-indigo tracking-tight">

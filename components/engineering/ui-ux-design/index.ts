@@ -1,6 +1,6 @@
 export { UiuxContact } from "./uiux-contact";
 export { UiuxDeliver } from "./uiux-deliver";
-export { UiuxFaq, UIUX_FAQS } from "./uiux-faq";
+export { UIUX_FAQS, UiuxFaq } from "./uiux-faq";
 export { UiuxHero } from "./uiux-hero";
 export { UiuxIndustries } from "./uiux-industries";
 export { UiuxProcess } from "./uiux-process";

@@ -26,7 +26,7 @@ export function UiuxIndustries() {
             <Link
               key={ind.id}
               href={ind.href}
-              className="flex shrink-0 items-center gap-3 rounded-(--r-md) border border-border bg-slate-50 px-6 py-[15px] shadow-xs no-underline transition-colors hover:border-border-strong hover:bg-surface"
+              className="flex shrink-0 items-center gap-3 rounded-(--r-md) border border-border bg-slate-50 px-6 py-[15px] no-underline shadow-xs transition-colors hover:border-border-strong hover:bg-surface"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-(--r-md) bg-indigo-50 text-xo-indigo">
                 <NavIcon name={ind.icon} className="h-[18px] w-[18px]" />

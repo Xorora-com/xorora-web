@@ -46,9 +46,9 @@ export function LwdPortfolio() {
           </h3>
           <p className="mb-4 font-sans text-[15.5px] text-fg2 leading-relaxed">
             Teams often rebuild auth, billing, queues, and admin tooling because
-            those pieces feel &quot;custom.&quot; On Laravel they already exist and
-            are maintained. Rebuilding them is how a six-month platform becomes a
-            year.
+            those pieces feel &quot;custom.&quot; On Laravel they already exist
+            and are maintained. Rebuilding them is how a six-month platform
+            becomes a year.
           </p>
           <p className="mb-4 font-sans text-[15.5px] text-fg2 leading-relaxed">
             We put Livewire or Inertia where the team shape needs one codebase,
@@ -71,8 +71,8 @@ export function LwdPortfolio() {
             </h3>
             <p className="m-0 font-sans text-[15px] text-fg2 leading-relaxed">
               Blade with Livewire is our default for business applications and
-              internal platforms. We only split a separate frontend when a mobile
-              app or second consumer forces the coordination cost.
+              internal platforms. We only split a separate frontend when a
+              mobile app or second consumer forces the coordination cost.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -97,7 +97,7 @@ export function LwdPortfolio() {
           <Link
             key={item.href + item.title}
             href={item.href}
-            className="group overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-md"
+            className="group hover:-translate-y-1 overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:border-border-strong hover:shadow-md"
           >
             <div className="p-[clamp(22px,2.4vw,28px)]">
               <p className="mb-2 font-mono text-[11px] text-tangerine-600 uppercase tracking-[0.12em]">
@@ -106,7 +106,7 @@ export function LwdPortfolio() {
               <h3 className="mb-2 font-sans font-semibold text-[18px] text-fg1 leading-snug">
                 {item.title}
               </h3>
-              <p className="mb-4 m-0 font-sans text-[14px] text-fg2 leading-relaxed">
+              <p className="m-0 mb-4 font-sans text-[14px] text-fg2 leading-relaxed">
                 {item.body}
               </p>
               <span className="inline-flex items-center gap-1.5 font-sans font-semibold text-[13.5px] text-accent">

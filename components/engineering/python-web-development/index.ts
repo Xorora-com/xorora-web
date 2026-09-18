@@ -4,7 +4,7 @@ export { PwdContact } from "./pwd-contact";
 export { PwdCost } from "./pwd-cost";
 export { PwdDeliver } from "./pwd-deliver";
 export { PwdEngage } from "./pwd-engage";
-export { PYTHON_WEB_FAQS, PwdFaq } from "./pwd-faq";
+export { PwdFaq, PYTHON_WEB_FAQS } from "./pwd-faq";
 export { PwdHero } from "./pwd-hero";
 export { PwdIndustries } from "./pwd-industries";
 export { PwdMidCta } from "./pwd-mid-cta";

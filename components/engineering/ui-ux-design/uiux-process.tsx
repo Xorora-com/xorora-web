@@ -183,7 +183,7 @@ function TrackColumn({
                 <div className="relative flex w-10 shrink-0 flex-col items-center sm:w-11">
                   <span
                     className={cn(
-                      "relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-mono text-[12px] font-bold text-white transition-all duration-300 sm:h-11 sm:w-11 sm:text-[13px]",
+                      "relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-bold font-mono text-[12px] text-white transition-all duration-300 sm:h-11 sm:w-11 sm:text-[13px]",
                       isOpen || isPast
                         ? cn(style.node, isOpen && style.nodeGlow)
                         : "border-2 border-slate-200 bg-white text-slate-400",
@@ -200,7 +200,7 @@ function TrackColumn({
                   </span>
                   {!isLast && (
                     <div
-                      className="mt-0 w-0.5 min-h-3 flex-1 rounded-full bg-indigo-100"
+                      className="mt-0 min-h-3 w-0.5 flex-1 rounded-full bg-indigo-100"
                       aria-hidden
                     >
                       <div
@@ -277,7 +277,7 @@ export function UiuxProcess() {
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -top-24 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(70,76,159,0.14)_0%,transparent_68%)]"
+        className="-top-24 -translate-x-1/2 pointer-events-none absolute left-1/2 h-[420px] w-[900px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(70,76,159,0.14)_0%,transparent_68%)]"
         aria-hidden
       />
       <div
@@ -304,7 +304,9 @@ export function UiuxProcess() {
             <span
               className={cn(
                 "absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full bg-xo-indigo shadow-[0_8px_24px_-10px_rgba(70,76,159,0.65)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
-                mobileTrack === "ui" ? "translate-x-[calc(100%+4px)]" : "translate-x-0",
+                mobileTrack === "ui"
+                  ? "translate-x-[calc(100%+4px)]"
+                  : "translate-x-0",
               )}
               style={{ left: 6 }}
               aria-hidden
@@ -335,7 +337,7 @@ export function UiuxProcess() {
           />
 
           {/* Desktop bridge badge */}
-          <div className="pointer-events-none absolute top-[72px] left-1/2 z-20 hidden -translate-x-1/2 lg:flex">
+          <div className="-translate-x-1/2 pointer-events-none absolute top-[72px] left-1/2 z-20 hidden lg:flex">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 font-sans font-semibold text-[12px] text-fg2 shadow-md">
               UX
               <ArrowRight className="h-3.5 w-3.5 text-xo-indigo" aria-hidden />
@@ -367,9 +369,7 @@ export function UiuxProcess() {
               key={mobileTrack}
               id={mobileTrack}
               openIndex={open[mobileTrack]}
-              onOpen={(i) =>
-                setOpen((p) => ({ ...p, [mobileTrack]: i }))
-              }
+              onOpen={(i) => setOpen((p) => ({ ...p, [mobileTrack]: i }))}
             />
           </div>
         </div>

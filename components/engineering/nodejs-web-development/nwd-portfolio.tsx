@@ -9,32 +9,22 @@ import { ROUTES } from "@/lib/navigation";
 
 const PROJECTS = [
   {
-    href: ROUTES.caseStudy("real-time-saas-event-monitoring"),
-    img: "/assets/pingpanda/dashboard.webp",
-    tag: "Event-driven SaaS",
-    title: "Event-driven alerts. Full context.",
-    body: "API-first event delivery with idempotent handlers and a cheap read path.",
-    imageAlt:
-      "Event-driven notification platform built on a Node.js API-first backend",
-    imageTitle: "Node.js event notifier — Xorora case study",
+    href: ROUTES.caseStudy("amazon-au-product-launch"),
+    img: "/assets/case-studies/amazon-au-product-launch/hero.webp",
+    tag: "Amazon AU · Product Launch",
+    title: "Empty storefront to 2.5 ROAS",
+    body: "Demand validation, listing, Brand Registry, and Sponsored Products — profitable in about five weeks.",
+    imageAlt: "Amazon Australia product launch case study",
+    imageTitle: "Amazon AU product launch — Xorora case study",
   },
   {
-    href: ROUTES.caseStudy("unified-ai-voice-operations"),
-    img: "/assets/mocks/portal-business.webp",
-    tag: "Real-time operations",
-    title: "Four portals. One backend.",
-    body: "Role-based portals sharing one backend — separate access, one deployment.",
-    imageAlt: "Multi-portal real-time operations platform on a shared backend",
-    imageTitle: "Real-time operations platform — Xorora case study",
-  },
-  {
-    href: ROUTES.caseStudy("real-time-compliance-intelligence"),
-    img: "/assets/regula/dashboard.webp",
-    tag: "Fintech & regtech",
-    title: "Compliance intelligence in production",
-    body: "Parsing, classification, and audit trails in a platform operators actually use.",
-    imageAlt: "RegTech compliance dashboard with a Node.js API layer",
-    imageTitle: "Compliance intelligence platform — Xorora case study",
+    href: ROUTES.caseStudy("amazon-au-laundry-bag-launch"),
+    img: "/assets/case-studies/amazon-au-laundry-bag-launch/hero.webp",
+    tag: "Amazon AU · Second Launch",
+    title: "Laundry bag set with Brand Registry ready",
+    body: "A second Amazon Australia launch with assets and process in place before listing day.",
+    imageAlt: "Amazon Australia laundry bag launch case study",
+    imageTitle: "Amazon AU laundry bag launch — Xorora case study",
   },
 ] as const;
 
@@ -62,11 +52,11 @@ export function NwdPortfolio() {
             either stale alerts or a database under constant load.
           </p>
           <p className="mb-4 font-sans text-[15.5px] text-fg2 leading-relaxed">
-            We built an API-first event notifier. Events publish once, fan out to
-            subscribers, and each alert carries the full context assembled at
-            publish time rather than fetched on read. Handlers are idempotent, so
-            a redelivery cannot double-fire. The read path stays cheap regardless
-            of how many subscribers are attached.
+            We built an API-first event notifier. Events publish once, fan out
+            to subscribers, and each alert carries the full context assembled at
+            publish time rather than fetched on read. Handlers are idempotent,
+            so a redelivery cannot double-fire. The read path stays cheap
+            regardless of how many subscribers are attached.
           </p>
           <p className="m-0 font-sans text-[15.5px] text-fg2 leading-relaxed">
             Alerts arrive instantly and carry everything the user needs to act.
@@ -110,7 +100,7 @@ export function NwdPortfolio() {
           <Link
             key={project.href}
             href={project.href}
-            className="group overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-md"
+            className="group hover:-translate-y-1 overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:border-border-strong hover:shadow-md"
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
               <Image
@@ -129,7 +119,7 @@ export function NwdPortfolio() {
               <h3 className="mb-2 font-sans font-semibold text-[18px] text-fg1 leading-snug">
                 {project.title}
               </h3>
-              <p className="mb-4 m-0 font-sans text-[14px] text-fg2 leading-relaxed">
+              <p className="m-0 mb-4 font-sans text-[14px] text-fg2 leading-relaxed">
                 {project.body}
               </p>
               <span className="inline-flex items-center gap-1.5 font-sans font-semibold text-[13.5px] text-accent">

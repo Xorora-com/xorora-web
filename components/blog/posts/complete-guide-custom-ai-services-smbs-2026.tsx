@@ -390,13 +390,13 @@ export function CustomAiSmbGuideArticle() {
       </p>
       <p className={cn(bodyClass, "mb-5")}>
         Relevant production work includes a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-compliance-intelligence")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time compliance intelligence platform
         </TextLink>{" "}
         that turns regulatory changes into live, actionable alerts — directly
         relevant to businesses in healthcare or other compliance-heavy
         operations — and{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time event monitoring infrastructure
         </TextLink>{" "}
         built for instant, full-context alerting rather than delayed reporting.

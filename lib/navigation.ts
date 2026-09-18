@@ -149,29 +149,7 @@ export interface SiteNavigation {
 
 export const XO_NAV: SiteNavigation = {
   caseStudiesHref: ROUTES.ourWork,
-  solutions: [
-    {
-      name: "Lead'em",
-      tagline: "AI-Powered Sales CRM for Google Workspace Teams",
-      icon: "kanban-square",
-      href: ROUTES.leadem,
-      live: true,
-    },
-    {
-      name: "Clearbeam",
-      tagline: "Real-Time SaaS Insights, Delivered to Your Email",
-      icon: "mail-check",
-      href: ROUTES.clearbeam,
-      live: true,
-    },
-    {
-      name: "Losono",
-      tagline: "Build AI Agents that Chat, Speak, Listen, and Answer",
-      icon: "bot",
-      href: ROUTES.losono,
-      live: true,
-    },
-  ],
+  solutions: [],
   services: [
     {
       name: "Consulting",
@@ -356,14 +334,14 @@ export const XO_NAV: SiteNavigation = {
   ],
   featured: {
     tag: "FEATURED CASE STUDY",
-    title: "From fragmented tools to unified AI voice operations",
-    desc: "How we engineered four role-based portals on one shared backend — turning scattered operations into a commercially-ready product.",
-    img: "/assets/mocks/portal-business.webp",
-    href: ROUTES.caseStudy("unified-ai-voice-operations"),
-    metaTitle: "Unified AI Voice Operations Case Study | Xorora",
+    title: "From Empty Storefront to 2.5 ROAS: An Amazon AU Launch",
+    desc: "A demand-validated multi-unit card tracker, conversion-ready listing, Brand Registry assets, and a disciplined $20/day Sponsored Products plan — reaching 2.5 ROAS in about five weeks.",
+    img: "/assets/case-studies/amazon-au-product-launch/hero.webp",
+    href: ROUTES.caseStudy("amazon-au-product-launch"),
+    metaTitle: "Amazon AU Product Launch Case Study — 2.5 ROAS | Xorora",
     stats: [
-      ["4", "portals"],
-      ["16mo", "to production"],
+      ["2.5", "ROAS"],
+      ["~5 wks", "to launch"],
     ],
   },
 };

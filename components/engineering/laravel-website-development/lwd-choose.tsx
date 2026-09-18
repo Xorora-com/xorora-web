@@ -23,7 +23,11 @@ const ROWS: {
   },
   {
     label: "Continuity if someone leaves",
-    values: ["Team-backed", "Single point of failure", "Single point of failure"],
+    values: [
+      "Team-backed",
+      "Single point of failure",
+      "Single point of failure",
+    ],
   },
   {
     label: "Upgrade path maintained",
@@ -47,11 +51,11 @@ export function LwdChoose() {
       <p className="mb-10 max-w-[720px] font-sans text-[15.5px] text-fg2 leading-relaxed">
         The honest case for an in-house hire: if this platform is your core
         product and needs continuous work for years, hire. We will say so on the
-        call. Our work is strongest when you need senior Laravel capacity now, or
-        when the build has a defined end.
+        call. Our work is strongest when you need senior Laravel capacity now,
+        or when the build has a defined end.
       </p>
 
-      <div className="max-md:hidden overflow-hidden rounded-(--r-xl) border border-border">
+      <div className="overflow-hidden rounded-(--r-xl) border border-border max-md:hidden">
         <table className="w-full border-collapse text-left">
           <thead>
             <tr className="bg-indigo-50">

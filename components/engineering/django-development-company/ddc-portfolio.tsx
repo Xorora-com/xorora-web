@@ -9,32 +9,22 @@ import { ROUTES } from "@/lib/navigation";
 
 const PROJECTS = [
   {
-    href: ROUTES.caseStudy("unified-ai-voice-operations"),
-    img: "/assets/mocks/portal-business.webp",
-    tag: "Multi-tenant SaaS",
-    title: "Object-level permissions across four portals",
-    body: "One Django backend. Role models structured in the ORM so access rules apply once.",
-    imageAlt:
-      "Django multi-portal SaaS with object-level permissions and shared ORM",
-    imageTitle: "Django multi-tenant portals — Xorora case study",
+    href: ROUTES.caseStudy("amazon-au-product-launch"),
+    img: "/assets/case-studies/amazon-au-product-launch/hero.webp",
+    tag: "Amazon AU · Product Launch",
+    title: "Empty storefront to 2.5 ROAS",
+    body: "Demand validation, listing, Brand Registry, and Sponsored Products — profitable in about five weeks.",
+    imageAlt: "Amazon Australia product launch case study",
+    imageTitle: "Amazon AU product launch — Xorora case study",
   },
   {
-    href: ROUTES.caseStudy("real-time-compliance-intelligence"),
-    img: "/assets/regula/dashboard.webp",
-    tag: "Operations platforms",
-    title: "Admin that stays internal",
-    body: "Staff tooling on Django admin with audit trails — without becoming a customer product.",
-    imageAlt: "Django admin and operations tooling for compliance workflows",
-    imageTitle: "Django operations platform — Xorora case study",
-  },
-  {
-    href: ROUTES.caseStudy("real-time-saas-event-monitoring"),
-    img: "/assets/pingpanda/dashboard.webp",
-    tag: "Data platforms",
-    title: "Celery behind the interface",
-    body: "Django serving the app while queues and pipelines do the heavy work outside the request.",
-    imageAlt: "Django and Celery data platform for operator dashboards",
-    imageTitle: "Django data platform — Xorora case study",
+    href: ROUTES.caseStudy("amazon-au-laundry-bag-launch"),
+    img: "/assets/case-studies/amazon-au-laundry-bag-launch/hero.webp",
+    tag: "Amazon AU · Second Launch",
+    title: "Laundry bag set with Brand Registry ready",
+    body: "A second Amazon Australia launch with assets and process in place before listing day.",
+    imageAlt: "Amazon Australia laundry bag launch case study",
+    imageTitle: "Amazon AU laundry bag launch — Xorora case study",
   },
 ] as const;
 
@@ -110,7 +100,7 @@ export function DdcPortfolio() {
           <Link
             key={project.href}
             href={project.href}
-            className="group overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-md"
+            className="group hover:-translate-y-1 overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:border-border-strong hover:shadow-md"
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
               <Image
@@ -129,7 +119,7 @@ export function DdcPortfolio() {
               <h3 className="mb-2 font-sans font-semibold text-[18px] text-fg1 leading-snug">
                 {project.title}
               </h3>
-              <p className="mb-4 m-0 font-sans text-[14px] text-fg2 leading-relaxed">
+              <p className="m-0 mb-4 font-sans text-[14px] text-fg2 leading-relaxed">
                 {project.body}
               </p>
               <span className="inline-flex items-center gap-1.5 font-sans font-semibold text-[13.5px] text-accent">

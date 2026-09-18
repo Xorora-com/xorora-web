@@ -1,5 +1,5 @@
-import { Boxes, Code2, Smartphone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Boxes, Code2, Smartphone } from "lucide-react";
 import { LightSection } from "@/components/case-study/light-section";
 import { SectionHead } from "@/components/case-study/section-head";
 

@@ -37,22 +37,21 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   "/Travel & Hospitality.html": "/industries/travel-hospitality",
   "/Travel-Hospitality.html": "/industries/travel-hospitality",
 
-  // Case studies
-  "/Unified AI Voice Operations Case Study.html":
-    "/case-studies/unified-ai-voice-operations",
-  "/Regula Case Study.html": "/case-studies/real-time-compliance-intelligence",
-  "/PingPanda Case Study.html": "/case-studies/real-time-saas-event-monitoring",
+  // Case studies (retired pages redirect to home)
+  "/Unified AI Voice Operations Case Study.html": "/",
+  "/Regula Case Study.html": "/",
+  "/PingPanda Case Study.html": "/",
   "/Xorora Case Study.html": "/our-work",
 
   // Internal content sources (not public routes; redirect to index)
   "/Case Studies Content.html": "/our-work",
   "/Case Studies Content-print.html": "/our-work",
 
-  // Products
-  "/Losono.html": "/solutions/losono",
-  "/Clearbeam.html": "/solutions/clearbeam",
-  "/Lead'em.html": "/solutions/leadem",
-  "/Lead'em v2.html": "/solutions/leadem",
+  // Products (retired Solutions redirect to home)
+  "/Losono.html": "/",
+  "/Clearbeam.html": "/",
+  "/Lead'em.html": "/",
+  "/Lead'em v2.html": "/",
 };
 
 function redirectSources(source: string): string[] {

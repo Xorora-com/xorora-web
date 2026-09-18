@@ -135,17 +135,17 @@ const COMPANIES: CompanyProfile[] = [
       <>
         The distinguishing pattern in Xorora&apos;s recent work is event-driven
         delivery: a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time SaaS event monitoring system
         </TextLink>{" "}
         built for instant, full-context alerting from ingestion to notification,
         a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-compliance-intelligence")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time compliance intelligence platform
         </TextLink>{" "}
         that turns regulatory changes into live alerts instead of periodic
         reports, and a{" "}
-        <TextLink href={ROUTES.caseStudy("unified-ai-voice-operations")}>
+        <TextLink href={ROUTES.ourWork}>
           multi-portal SaaS backend
         </TextLink>{" "}
         serving four role-specific portals from one shared architecture.

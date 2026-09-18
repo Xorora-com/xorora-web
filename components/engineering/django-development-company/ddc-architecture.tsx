@@ -75,7 +75,10 @@ export function DdcArchitecture() {
             </p>
             <ol className="m-0 flex list-none flex-col gap-3 p-0">
               {[
-                { k: "Views & templates", v: "Thin handlers, HTMX where it fits" },
+                {
+                  k: "Views & templates",
+                  v: "Thin handlers, HTMX where it fits",
+                },
                 {
                   k: "Service layer",
                   v: "Orchestration outside models and views",

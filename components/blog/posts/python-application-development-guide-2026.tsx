@@ -226,7 +226,7 @@ export function PythonAppGuideArticle() {
         documentation, it&apos;s a strong fit for microservices, mobile app
         backends, and any system where request throughput matters — and
         it&apos;s one of the frameworks behind Xorora&apos;s own{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time SaaS event monitoring
         </TextLink>{" "}
         work.
@@ -373,7 +373,7 @@ export function PythonAppGuideArticle() {
         not a standalone service. Recent{" "}
         <TextLink href={ROUTES.ourWork}>engagements</TextLink> have included
         multi-portal SaaS backends built on a single shared architecture and a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-compliance-intelligence")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time compliance intelligence platform
         </TextLink>
         . Publicly cited results from that body of work include a 3.5x median

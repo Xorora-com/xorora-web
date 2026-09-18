@@ -158,7 +158,7 @@ export function PadChoose() {
         </Link>{" "}
         include multi-portal SaaS backends and a{" "}
         <Link
-          href={ROUTES.caseStudy("real-time-compliance-intelligence")}
+          href={ROUTES.ourWork}
           className="font-semibold text-accent no-underline hover:text-tangerine-600"
         >
           real-time compliance intelligence platform

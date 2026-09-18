@@ -23,7 +23,11 @@ const ROWS: {
   },
   {
     label: "Continuity if someone leaves",
-    values: ["Team-backed", "Single point of failure", "Single point of failure"],
+    values: [
+      "Team-backed",
+      "Single point of failure",
+      "Single point of failure",
+    ],
   },
   {
     label: "Cost after launch",
@@ -51,7 +55,7 @@ export function PwdChoose() {
         when the build has a defined end.
       </p>
 
-      <div className="max-md:hidden overflow-hidden rounded-(--r-xl) border border-border">
+      <div className="overflow-hidden rounded-(--r-xl) border border-border max-md:hidden">
         <table className="w-full border-collapse text-left">
           <thead>
             <tr className="bg-indigo-50">

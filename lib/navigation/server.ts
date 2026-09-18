@@ -45,9 +45,11 @@ export async function buildSiteNavigation(): Promise<SiteNavigation> {
   }));
 
   if (!featuredStudy) {
-    throw new Error(
-      "No featured case study found in the database. Run `bun run db:seed` to populate content.",
-    );
+    return {
+      ...XO_NAV,
+      industries,
+      featured: XO_NAV.featured,
+    };
   }
 
   return {

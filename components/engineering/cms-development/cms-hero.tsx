@@ -24,8 +24,9 @@ export function CmsHero() {
           </h1>
           <p className="hero-reveal hero-reveal-2 mb-8 max-w-[520px] font-sans text-lg text-white/74 leading-relaxed">
             Manage your digital content under one platform, using the CMS we
-            develop. Our CMS development services deliver end-to-end custom-built
-            solutions, so managing and publishing content is a smooth experience.
+            develop. Our CMS development services deliver end-to-end
+            custom-built solutions, so managing and publishing content is a
+            smooth experience.
           </p>
           <div className="hero-reveal hero-reveal-2 mb-7 flex flex-wrap items-center gap-3.5">
             <LetsTalkContactLink

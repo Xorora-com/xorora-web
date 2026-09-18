@@ -37,6 +37,33 @@ const nextConfig: NextConfig = {
         destination: "/consulting/staff-augmentation-services",
         permanent: true,
       },
+      // Retired case studies
+      {
+        source: "/case-studies/unified-ai-voice-operations",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/real-time-compliance-intelligence",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/real-time-saas-event-monitoring",
+        destination: "/",
+        permanent: true,
+      },
+      // Retired Solutions products
+      {
+        source: "/solutions",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/solutions/:path*",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };

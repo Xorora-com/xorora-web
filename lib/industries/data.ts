@@ -666,17 +666,17 @@ const INDUSTRIES: IndustriesRecord = {
         type: "featured-case",
         heading: { label: "Selected work", title: "Featured case study." },
         case: {
-          slug: "real-time-compliance-intelligence",
-          title: "Regulatory Intelligence Platform",
+          slug: "amazon-au-product-launch",
+          title: "Amazon AU Product Launch",
           description:
-            "An automation first platform that monitors regulators continuously, scores the business impact of every change, and alerts compliance teams in under an hour. We engineered the real time crawling, AI analysis, and multi channel delivery end to end.",
-          image: "/assets/regula/featured.jpg",
+            "A demand-validated product launch on Amazon Australia — listing, Brand Registry assets, and Sponsored Products — from empty storefront to 2.5 ROAS in about five weeks.",
+          image: "/assets/case-studies/amazon-au-product-launch/hero.webp",
           metrics: [
-            { value: "70%", label: "Less manual workload" },
-            { value: "< 1 hr", label: "Change detection" },
-            { value: "12 mo", label: "To production" },
+            { value: "2.5", label: "ROAS" },
+            { value: "~5 wks", label: "To profitable launch" },
+            { value: "$20/day", label: "PPC budget" },
           ],
-          tags: ["RegTech", "FinTech", "AI Automation", "Compliance"],
+          tags: ["Amazon AU", "Product Launch", "PPC"],
         },
       },
       {
@@ -1750,28 +1750,28 @@ const INDUSTRIES: IndustriesRecord = {
         heading: { label: "Selected work", title: "Featured case studies." },
         cases: [
           {
-            slug: "unified-ai-voice-operations",
-            title: "AI Voice Operations Platform",
+            slug: "amazon-au-product-launch",
+            title: "Amazon AU Product Launch",
             description:
-              "Four purpose built portals on one shared backend turned powerful voice agent technology into a commercially ready product.",
-            image: "/assets/saas/voice-ops.jpg",
+              "Empty storefront to 2.5 ROAS in about five weeks — demand validation, listing, Brand Registry, and disciplined Sponsored Products.",
+            image: "/assets/case-studies/amazon-au-product-launch/hero.webp",
             metrics: [
-              { value: "4", label: "Role-based portals" },
-              { value: "16 mo", label: "To production" },
+              { value: "2.5", label: "ROAS" },
+              { value: "~5 wks", label: "To launch" },
             ],
-            tags: ["AI Voice", "B2B SaaS", "Multi-portal"],
+            tags: ["Amazon AU", "Product Launch", "PPC"],
           },
           {
-            slug: "real-time-saas-event-monitoring",
-            title: "SaaS Event Monitoring",
+            slug: "amazon-au-laundry-bag-launch",
+            title: "Amazon AU Laundry Bag Launch",
             description:
-              "An API first event notifier: send a typed event, get an instant alert with full context. No dashboards to configure, no blind spots.",
-            image: "/assets/saas/event-monitoring.jpg",
+              "A second Amazon Australia launch with Brand Registry and a proven process already in place before the product ever touched a listing.",
+            image: "/assets/case-studies/amazon-au-laundry-bag-launch/hero.webp",
             metrics: [
-              { value: "Real-time", label: "Event delivery" },
-              { value: "13 mo", label: "To production" },
+              { value: "2nd", label: "Product launch" },
+              { value: "AU", label: "Marketplace" },
             ],
-            tags: ["SaaS", "Real-time", "API-first"],
+            tags: ["Amazon AU", "Product Launch", "Brand Registry"],
           },
         ],
       },

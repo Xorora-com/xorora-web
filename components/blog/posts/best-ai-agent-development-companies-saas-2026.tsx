@@ -244,16 +244,16 @@ const COMPANIES: CompanyProfile[] = [
       </>,
       <>
         On production readiness: Xorora&apos;s relevant work includes a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-compliance-intelligence")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time compliance intelligence platform
         </TextLink>{" "}
         turning regulatory changes into live alerts, a{" "}
-        <TextLink href={ROUTES.caseStudy("unified-ai-voice-operations")}>
+        <TextLink href={ROUTES.ourWork}>
           unified AI voice operations system
         </TextLink>{" "}
         serving four role-specific SaaS portals from one shared architecture,
         and{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time event monitoring infrastructure
         </TextLink>{" "}
         built for instant, full-context alerting. Publicly cited results across

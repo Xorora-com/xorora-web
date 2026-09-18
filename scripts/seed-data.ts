@@ -47,7 +47,7 @@ export const seedCaseStudies: SeedCaseStudy[] = [
     heroImage: "/assets/mocks/portal-business.webp",
     headerBg: "/assets/header-bg.jpg",
     heroUrl: "app.xorora.ai/dashboard",
-    featured: true,
+    featured: false,
     sortOrder: 1,
     metaTitle: "Unified AI Voice Operations Case Study | Xorora",
     metaDescription:
@@ -649,7 +649,7 @@ export const seedCaseStudies: SeedCaseStudy[] = [
     heroImage: "/assets/case-studies/amazon-au-product-launch/hero.webp",
     headerBg: "/assets/header-bg.jpg",
     heroUrl: "amazon.com.au",
-    featured: false,
+    featured: true,
     sortOrder: 4,
     metaTitle: "Amazon AU Product Launch Case Study — 2.5 ROAS | Xorora",
     metaDescription:

@@ -27,7 +27,8 @@ const DECISIONS = [
 ] as const;
 
 const diagramSeo = imageAltTitle({
-  primary: "Node.js architecture with event loop, worker threads and Redis pub/sub scaling",
+  primary:
+    "Node.js architecture with event loop, worker threads and Redis pub/sub scaling",
   secondary: "Event loop, worker threads, Redis pub/sub",
   context: "event loop, worker threads and Redis pub/sub scaling",
 });
@@ -75,8 +76,14 @@ export function NwdArchitecture() {
             </p>
             <ol className="m-0 flex list-none flex-col gap-3 p-0">
               {[
-                { k: "Event loop", v: "I/O stays non-blocking; lag is budgeted" },
-                { k: "Worker threads", v: "CPU-bound work leaves the main process" },
+                {
+                  k: "Event loop",
+                  v: "I/O stays non-blocking; lag is budgeted",
+                },
+                {
+                  k: "Worker threads",
+                  v: "CPU-bound work leaves the main process",
+                },
                 { k: "Redis pub/sub", v: "Shared state across Node processes" },
               ].map((row, i) => (
                 <li

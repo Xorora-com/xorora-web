@@ -1,7 +1,7 @@
 export { MvpChallenges } from "./mvp-challenges";
 export { MvpContact } from "./mvp-contact";
 export { MvpDeliver } from "./mvp-deliver";
-export { MvpFaq, MVP_FAQS } from "./mvp-faq";
+export { MVP_FAQS, MvpFaq } from "./mvp-faq";
 export { MvpHero } from "./mvp-hero";
 export { MvpPrinciples } from "./mvp-principles";
 export { MvpProcess } from "./mvp-process";

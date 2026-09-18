@@ -18,7 +18,7 @@ const FRAMEWORKS = [
   {
     name: "FastAPI",
     body: "The go-to for modern, high-performance APIs. Built around Python's async capabilities and automatic OpenAPI documentation — a strong fit for microservices, mobile app backends, and systems where request throughput matters.",
-    depthHref: ROUTES.caseStudy("real-time-saas-event-monitoring"),
+    depthHref: ROUTES.ourWork,
     depthLabel: "real-time SaaS event monitoring",
   },
   {

@@ -246,12 +246,12 @@ const COMPANIES: CompanyProfile[] = [
       </>,
       <>
         On production engineering depth: relevant work includes a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-compliance-intelligence")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time compliance intelligence platform
         </TextLink>{" "}
         turning regulatory changes into live alerts under real production load,
         and{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time event monitoring infrastructure
         </TextLink>{" "}
         built for instant, full-context alerting — systems that had to be
@@ -260,7 +260,7 @@ const COMPANIES: CompanyProfile[] = [
       </>,
       <>
         On scaling and reliability: a{" "}
-        <TextLink href={ROUTES.caseStudy("unified-ai-voice-operations")}>
+        <TextLink href={ROUTES.ourWork}>
           unified AI voice operations system
         </TextLink>{" "}
         serves four role-specific SaaS portals from one shared architecture —

@@ -253,11 +253,11 @@ const COMPANIES: CompanyProfile[] = [
       </>,
       <>
         On client-facing reliability: relevant work includes{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time event monitoring infrastructure
         </TextLink>{" "}
         built for instant, full-context alerting, and a{" "}
-        <TextLink href={ROUTES.caseStudy("unified-ai-voice-operations")}>
+        <TextLink href={ROUTES.ourWork}>
           unified AI voice operations system
         </TextLink>{" "}
         serving four role-specific portals from one shared architecture — the

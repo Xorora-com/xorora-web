@@ -53,7 +53,7 @@ export function PwdEngage() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="rounded-(--r-lg) border border-border bg-white p-[clamp(24px,2.6vw,32px)] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-md"
+                className="hover:-translate-y-0.5 rounded-(--r-lg) border border-border bg-white p-[clamp(24px,2.6vw,32px)] no-underline transition-all duration-200 hover:border-border-strong hover:shadow-md"
               >
                 {inner}
               </Link>

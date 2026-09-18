@@ -264,11 +264,11 @@ const COMPANIES: CompanyProfile[] = [
       </>,
       <>
         On decision intelligence depth: relevant work includes a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-compliance-intelligence")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time compliance intelligence platform
         </TextLink>{" "}
         that turns regulatory changes into live, actionable alerts, and{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time event monitoring infrastructure
         </TextLink>{" "}
         built for instant, full-context alerting rather than a delayed report —

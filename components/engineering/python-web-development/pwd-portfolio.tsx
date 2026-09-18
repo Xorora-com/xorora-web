@@ -9,33 +9,22 @@ import { ROUTES } from "@/lib/navigation";
 
 const PROJECTS = [
   {
-    href: ROUTES.caseStudy("unified-ai-voice-operations"),
-    img: "/assets/mocks/portal-business.webp",
-    tag: "B2B SaaS",
-    title: "Four portals. One backend.",
-    body: "Role-based portals on a shared backend — separate access, one deployment.",
-    imageAlt: "Multi-portal B2B SaaS platform on a shared backend",
-    imageTitle: "Multi-tenant SaaS portal — Xorora case study",
+    href: ROUTES.caseStudy("amazon-au-product-launch"),
+    img: "/assets/case-studies/amazon-au-product-launch/hero.webp",
+    tag: "Amazon AU · Product Launch",
+    title: "Empty storefront to 2.5 ROAS",
+    body: "Demand validation, listing, Brand Registry, and Sponsored Products — profitable in about five weeks.",
+    imageAlt: "Amazon Australia product launch case study",
+    imageTitle: "Amazon AU product launch — Xorora case study",
   },
   {
-    href: ROUTES.caseStudy("real-time-compliance-intelligence"),
-    img: "/assets/regula/dashboard.webp",
-    tag: "Fintech & regtech",
-    title: "Compliance intelligence in production",
-    body: "Parsing, classification, and audit trails in a platform operators actually use.",
-    imageAlt:
-      "RegTech compliance dashboard for Python web development in fintech",
-    imageTitle: "Compliance intelligence platform — Xorora case study",
-  },
-  {
-    href: ROUTES.caseStudy("real-time-saas-event-monitoring"),
-    img: "/assets/pingpanda/dashboard.webp",
-    tag: "Data platforms",
-    title: "Realtime visibility for operators",
-    body: "High-throughput event delivery with the interface and the pipeline designed together.",
-    imageAlt:
-      "SaaS event monitoring dashboard from Xorora's web development portfolio",
-    imageTitle: "SaaS event monitoring — Xorora case study",
+    href: ROUTES.caseStudy("amazon-au-laundry-bag-launch"),
+    img: "/assets/case-studies/amazon-au-laundry-bag-launch/hero.webp",
+    tag: "Amazon AU · Second Launch",
+    title: "Laundry bag set with Brand Registry ready",
+    body: "A second Amazon Australia launch with assets and process in place before listing day.",
+    imageAlt: "Amazon Australia laundry bag launch case study",
+    imageTitle: "Amazon AU laundry bag launch — Xorora case study",
   },
 ] as const;
 
@@ -85,10 +74,10 @@ export function PwdPortfolio() {
             </h3>
             <p className="m-0 font-sans text-[15px] text-fg2 leading-relaxed">
               When inference or high-throughput endpoints sit next to a Django
-              core, we isolate them in a FastAPI service so request latency stays
-              inside the budget. We set those performance targets in architecture
-              week, then load-test against them before launch — not after the
-              first timeout.
+              core, we isolate them in a FastAPI service so request latency
+              stays inside the budget. We set those performance targets in
+              architecture week, then load-test against them before launch — not
+              after the first timeout.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -113,7 +102,7 @@ export function PwdPortfolio() {
           <Link
             key={project.href}
             href={project.href}
-            className="group overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-md"
+            className="group hover:-translate-y-1 overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-sm transition-all duration-300 hover:border-border-strong hover:shadow-md"
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
               <Image
@@ -132,7 +121,7 @@ export function PwdPortfolio() {
               <h3 className="mb-2 font-sans font-semibold text-[18px] text-fg1 leading-snug">
                 {project.title}
               </h3>
-              <p className="mb-4 m-0 font-sans text-[14px] text-fg2 leading-relaxed">
+              <p className="m-0 mb-4 font-sans text-[14px] text-fg2 leading-relaxed">
                 {project.body}
               </p>
               <span className="inline-flex items-center gap-1.5 font-sans font-semibold text-[13.5px] text-accent">

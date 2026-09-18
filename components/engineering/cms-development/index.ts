@@ -1,6 +1,6 @@
 export { CmsContact } from "./cms-contact";
 export { CmsDeliver } from "./cms-deliver";
-export { CmsFaq, CMS_FAQS } from "./cms-faq";
+export { CMS_FAQS, CmsFaq } from "./cms-faq";
 export { CmsHero } from "./cms-hero";
 export { CmsIndustries } from "./cms-industries";
 export { CmsProcess } from "./cms-process";

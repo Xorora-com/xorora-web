@@ -1,4 +1,4 @@
-import { and, asc, eq, inArray } from "drizzle-orm";
+import { and, asc, eq, inArray, notInArray } from "drizzle-orm";
 import { db } from "@/lib/db";
 import {
   caseStudies,
@@ -6,6 +6,7 @@ import {
   caseStudySections,
 } from "@/lib/db/schema";
 import { INDUSTRY_CASE_IMAGES } from "./industry-images";
+import { isRetiredCaseStudySlug, RETIRED_CASE_STUDY_SLUGS } from "./retired";
 import {
   getStaticIndustryCaseStudyBySlug,
   mergeCaseStudyListItems,
@@ -113,7 +114,12 @@ export async function listPublishedCaseStudies(): Promise<CaseStudyListItem[]> {
     const rows = await db
       .select()
       .from(caseStudies)
-      .where(eq(caseStudies.status, "published"))
+      .where(
+        and(
+          eq(caseStudies.status, "published"),
+          notInArray(caseStudies.slug, [...RETIRED_CASE_STUDY_SLUGS]),
+        ),
+      )
       .orderBy(asc(caseStudies.sortOrder));
 
     if (rows.length === 0) {
@@ -157,7 +163,11 @@ export async function getFeaturedCaseStudy(): Promise<CaseStudy | null> {
     .select()
     .from(caseStudies)
     .where(
-      and(eq(caseStudies.status, "published"), eq(caseStudies.featured, 1)),
+      and(
+        eq(caseStudies.status, "published"),
+        eq(caseStudies.featured, 1),
+        notInArray(caseStudies.slug, [...RETIRED_CASE_STUDY_SLUGS]),
+      ),
     )
     .orderBy(asc(caseStudies.sortOrder))
     .limit(1);
@@ -172,6 +182,10 @@ export async function getFeaturedCaseStudy(): Promise<CaseStudy | null> {
 export async function getCaseStudyBySlug(
   slug: string,
 ): Promise<CaseStudy | null> {
+  if (isRetiredCaseStudySlug(slug)) {
+    return null;
+  }
+
   try {
     const [study] = await db
       .select()

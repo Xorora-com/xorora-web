@@ -8,37 +8,26 @@ import { cn } from "@/lib/utils";
 
 const RESULTS = [
   {
-    href: ROUTES.caseStudy("unified-ai-voice-operations"),
-    img: "/assets/mocks/portal-business.webp",
-    tag: "AI Voice Automation",
-    title: "From fragmented tools to unified AI voice operations",
-    body: "Four role-based portals on one shared backend, taken to production in 16 months.",
-    stat: "16mo",
-    statLabel: "Concept to production",
-    imageAlt: "Unified AI voice operations platform dashboard",
-    imageTitle: "AI voice automation case study",
+    href: ROUTES.caseStudy("amazon-au-product-launch"),
+    img: "/assets/case-studies/amazon-au-product-launch/hero.webp",
+    tag: "Amazon AU · Product Launch",
+    title: "From Empty Storefront to 2.5 ROAS: An Amazon AU Launch",
+    body: "Demand validation, listing, Brand Registry, and Sponsored Products — profitable in about five weeks.",
+    stat: "2.5",
+    statLabel: "ROAS on Sponsored Products",
+    imageAlt: "Amazon Australia product launch case study",
+    imageTitle: "Amazon AU product launch case study",
   },
   {
-    href: ROUTES.caseStudy("real-time-compliance-intelligence"),
-    img: "/assets/regula/dashboard.webp",
-    tag: "RegTech",
-    title: "Turning regulatory chaos into real-time compliance intelligence",
-    body: "Cut compliance workload by 70%, with change detection in under an hour.",
-    stat: "70%",
-    statLabel: "Less compliance workload",
-    imageAlt: "RegTech compliance intelligence platform dashboard",
-    imageTitle: "Real-time compliance intelligence case study",
-  },
-  {
-    href: ROUTES.caseStudy("real-time-saas-event-monitoring"),
-    img: "/assets/pingpanda/dashboard.webp",
-    tag: "SaaS Monitoring",
-    title: "From blind spots to instant visibility",
-    body: "An API-first event notifier delivering full-context alerts, shipped in 13 months.",
-    stat: "13mo",
-    statLabel: "Concept to production",
-    imageAlt: "Real-time SaaS event monitoring dashboard",
-    imageTitle: "SaaS event monitoring case study",
+    href: ROUTES.caseStudy("amazon-au-laundry-bag-launch"),
+    img: "/assets/case-studies/amazon-au-laundry-bag-launch/hero.webp",
+    tag: "Amazon AU · Second Launch",
+    title: "Laundry bag set launch with Brand Registry already in place",
+    body: "A second Amazon Australia launch with assets and process ready before listing day.",
+    stat: "2nd",
+    statLabel: "Product launched on AU",
+    imageAlt: "Amazon Australia laundry bag launch case study",
+    imageTitle: "Amazon AU laundry bag launch case study",
   },
 ] as const;
 
@@ -110,7 +99,7 @@ function UiuxCaseCard({
         <h3 className="mb-2 font-bold font-sans text-[clamp(17px,1.6vw,21px)] text-white leading-tight">
           {title}
         </h3>
-        <p className="mb-4 m-0 font-sans text-[13px] text-white/70 leading-snug">
+        <p className="m-0 mb-4 font-sans text-[13px] text-white/70 leading-snug">
           {body}
         </p>
         <div className="flex items-center justify-between border-white/18 border-t pt-3.5">
@@ -118,7 +107,9 @@ function UiuxCaseCard({
             <div className="font-extrabold font-sans text-[22px] text-tangerine-400 leading-none tracking-[-0.02em]">
               {stat}
             </div>
-            <div className="mt-1 font-sans text-white/65 text-xs">{statLabel}</div>
+            <div className="mt-1 font-sans text-white/65 text-xs">
+              {statLabel}
+            </div>
           </div>
           <span className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-xo-indigo text-white transition-all group-hover:bg-white group-hover:text-xo-ink">
             <ArrowUpRight className="h-[19px] w-[19px]" />

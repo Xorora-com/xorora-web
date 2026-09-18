@@ -497,7 +497,7 @@ export function BestAiAnalyticsAmazonArticle() {
       </p>
       <p className={cn(bodyClass, "mb-5")}>
         Xorora&apos;s relevant work includes a{" "}
-        <TextLink href={ROUTES.caseStudy("real-time-saas-event-monitoring")}>
+        <TextLink href={ROUTES.ourWork}>
           real-time SaaS event monitoring system
         </TextLink>{" "}
         built for instant, full-context alerting — exactly the kind of
