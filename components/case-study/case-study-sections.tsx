@@ -418,6 +418,18 @@ function ChallengeBulletsSection({
               </div>
             );
           })}
+          {content.image && (
+            <div className="relative mt-2 aspect-[16/10] overflow-hidden rounded-[var(--r-lg)] border border-border">
+              <Image
+                src={content.image.src}
+                alt={content.image.alt}
+                title={content.image.alt}
+                fill
+                sizes="(max-width: 980px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          )}
         </div>
       </div>
     </LightSection>
@@ -886,6 +898,18 @@ function OutcomesSection({
               amazon={amazon}
             />
           )}
+        </div>
+      )}
+      {!hasMedia && content.image && (
+        <div className="relative mx-auto mt-[clamp(48px,6vw,80px)] aspect-[21/9] max-w-[980px] overflow-hidden rounded-[var(--r-xl)] border border-white/10">
+          <Image
+            src={content.image.src}
+            alt={content.image.alt}
+            title={content.image.alt}
+            fill
+            sizes="(max-width: 980px) 100vw, 980px"
+            className="object-cover"
+          />
         </div>
       )}
     </DarkSection>

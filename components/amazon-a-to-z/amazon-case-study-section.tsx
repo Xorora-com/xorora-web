@@ -12,6 +12,39 @@ import { cn } from "@/lib/utils";
 
 const STUDIES = [
   {
+    slug: "amazon-uk-rugs-acos-turnaround",
+    tag: "Amazon UK · PPC · Home Furnishings",
+    title: "122% ACOS to 42%: An Amazon UK Rugs Turnaround",
+    description:
+      "One of the UK's largest home furnishings retailers was scaling Amazon ads into a loss. Xorora rebuilt PPC without killing the sales engine — ACOS fell ~66% while revenue kept growing.",
+    image: "/assets/case-studies/amazon-uk-rugs-acos-turnaround/hero.png",
+    imageAlt:
+      "Patterned area rug in a UK living room — home furnishings product hero",
+    frameTitle: "UK Home Furnishings",
+    marketplace: "amazon.co.uk",
+    stats: [
+      { value: "122%→42%", label: "ACOS" },
+      { value: "~66%", label: "ACOS cut" },
+      { value: "6 mo", label: "Engagement" },
+    ],
+  },
+  {
+    slug: "amazon-us-bedding-sku-ppc",
+    tag: "Amazon US · PPC · Bedding",
+    title: "~31% ACOS on 60 SKUs — Without Maxing the Budget",
+    description:
+      "A major US bedding brand allocated $10,000/month for a 60-SKU segment. Xorora spent ~$5,500, hit ~31% ACOS in three months, and held portfolio growth.",
+    image: "/assets/case-studies/amazon-us-bedding-sku-ppc/hero.png",
+    imageAlt: "Folded bed sheets and pillowcases — US bedding product hero",
+    frameTitle: "US Bedding Segment",
+    marketplace: "amazon.com",
+    stats: [
+      { value: "~31%", label: "ACOS" },
+      { value: "~$5.5k", label: "Monthly spend" },
+      { value: "3 mo", label: "Engagement" },
+    ],
+  },
+  {
     slug: "amazon-au-product-launch",
     tag: "Amazon AU · Product Launch · PPC",
     title: "From Empty Storefront to 2.5 ROAS",
@@ -20,6 +53,7 @@ const STUDIES = [
     image: "/assets/case-studies/amazon-au-product-launch/hero.webp",
     imageAlt: "Card tracker product hero still from the Amazon AU listing",
     frameTitle: "Card Tracker",
+    marketplace: "amazon.com.au",
     stats: [
       { value: "2.5", label: "ROAS" },
       { value: "$1,756.80", label: "Attributed sales" },
@@ -36,6 +70,7 @@ const STUDIES = [
     imageAlt:
       "Elvra 7-piece mesh laundry bag set — Amazon AU main listing still",
     frameTitle: "Laundry Bag Set",
+    marketplace: "amazon.com.au",
     stats: [
       { value: "2.44", label: "ROAS" },
       { value: "$271.20", label: "Attributed sales" },
@@ -56,7 +91,7 @@ function CaseStudySlide({
           src={study.image}
           alt={study.imageAlt}
           title={study.frameTitle}
-          marketplace="amazon.com.au"
+          marketplace={study.marketplace}
           className="h-full w-full"
         />
       </div>

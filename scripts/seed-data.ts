@@ -1162,6 +1162,409 @@ export const seedCaseStudies: SeedCaseStudy[] = [
       },
     ],
   },
+
+  {
+    slug: "amazon-uk-rugs-acos-turnaround",
+    title: "122% ACOS to 42%: An Amazon UK Rugs Turnaround",
+    subtitle: "Amazon UK · PPC · Home Furnishings",
+    tags: ["Amazon UK", "PPC", "Home Furnishings"],
+    category: "amazon",
+    lead: "One of the UK's largest rugs and home furnishings retailers was spending £6,000+ a month on Amazon ads at 122% ACOS — growing sales while losing money on every pound of PPC. Xorora rebuilt the account without killing the revenue engine behind it.",
+    heroImage: "/assets/case-studies/amazon-uk-rugs-acos-turnaround/hero.png",
+    headerBg: "/assets/header-bg.jpg",
+    heroUrl: "amazon.co.uk",
+    featured: true,
+    sortOrder: 6,
+    metaTitle: "Amazon UK PPC Case Study: 122% to 42% ACOS | Xorora",
+    metaDescription:
+      "How Xorora cut Amazon ACOS from 122% to 42% for a UK home furnishings retailer in six months — while sales kept growing. See the PPC turnaround.",
+    metrics: [
+      {
+        value: "122%→42%",
+        label: "ACOS after six months of management",
+      },
+      {
+        value: "~66%",
+        label: "Reduction in advertising cost of sale",
+      },
+      {
+        value: "Sales↑",
+        label: "Revenue grew through the engagement",
+      },
+      {
+        value: "6 mo",
+        label: "Audit to sustained ACOS result",
+      },
+    ],
+    sections: [
+      {
+        type: "overview",
+        content: {
+          label: "Overview",
+          title: "Scale that was costing more than it earned",
+          paragraphs: [
+            "The retailer was already generating meaningful Amazon revenue and spending more than £6,000 a month on advertising to do it. On the surface, the account looked like a growth story. Underneath, PPC was running at 122% ACOS — £122 in ad spend for every £100 in attributed sales.",
+            "Xorora took over Amazon PPC management with one brief: make advertising profitable without shutting down the campaigns that kept sales moving. Six months later, ACOS sat at 42%, sales had grown, and the account was finally compounding the right way.",
+          ],
+          meta: [
+            { label: "Market", value: "Amazon UK" },
+            { label: "Category", value: "Rugs & home furnishings" },
+            { label: "Ad spend", value: "£6,000+/month before engagement" },
+            { label: "Duration", value: "6 months" },
+            { label: "Management fee", value: "£750 → £1,600 / month" },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-uk-rugs-acos-turnaround/rugs-detail.png",
+            alt: "Close-up of textured area rug weave and fringe detail",
+            url: "amazon.co.uk",
+          },
+        },
+      },
+      {
+        type: "challenge",
+        content: {
+          label: "The tension",
+          title: "You couldn't pause spend without pausing the business",
+          subtitle:
+            "Most agencies would slash budget to fix ACOS. That wasn't an option here — PPC was the live revenue engine.",
+          bullets: [
+            {
+              title: "122% ACOS on live revenue",
+              body: "Every pound of attributed sales cost more than a pound in ads. The account was growing into a loss, not out of one.",
+            },
+            {
+              title: "Cut spend, cut sales",
+              body: "Campaigns that were inefficient were also carrying meaningful volume. A blunt pause risked the top line the client depended on.",
+            },
+            {
+              title: "Waste hidden at scale",
+              body: "Broad, overlapping, and underperforming keywords were burning budget inside a large account — hard to unwind without a systematic rebuild.",
+            },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-uk-rugs-acos-turnaround/rugs-rolled.png",
+            alt: "Thick wool area rug rolled open on hardwood — UK rugs catalog product",
+          },
+        },
+      },
+      {
+        type: "solution",
+        content: {
+          label: "What we did",
+          title: "Rebuild the account. Protect the sales. Then tighten.",
+          subtitle:
+            "No single 'big switch' — a disciplined, data-led program from audit through ongoing optimization.",
+          pipeline:
+            "Full account audit → Kill wasted spend → Restructure targeting → Bid & keyword optimization on a rolling loop",
+          bullets: [
+            {
+              title: "Audit where the money actually went",
+              body: "Campaign and keyword-level review to separate profitable demand from spend that only looked busy.",
+            },
+            {
+              title: "Remove waste without gutting volume",
+              body: "Broad and underperforming terms were isolated and cut so budget could move to terms that paid back.",
+            },
+            {
+              title: "Restructure for clarity",
+              body: "Targeting rebuilt so winners and losers no longer shared the same budgets and bid logic.",
+            },
+            {
+              title: "Optimize for months, not a week",
+              body: "Bids and targeting adjusted as new data landed — with sales tracked throughout so ACOS gains never came from killing revenue.",
+            },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-uk-rugs-acos-turnaround/rugs-layered.png",
+            alt: "Layered patterned area rugs on light wood floor in a bright UK home",
+          },
+        },
+      },
+      {
+        type: "architecture",
+        content: {
+          label: "How the engagement ran",
+          title: "Four phases from loss-making scale to profitable growth",
+          items: [
+            {
+              title: "Audit",
+              body: "Map campaign and keyword performance to see exactly where spend leaked vs. where it converted.",
+            },
+            {
+              title: "Cut waste",
+              body: "Identify and remove broad, poorly targeted, and underperforming keywords burning budget with no return.",
+            },
+            {
+              title: "Restructure",
+              body: "Separate profitable terms from the rest so bids, budgets, and reporting finally matched reality.",
+            },
+            {
+              title: "Ongoing optimization",
+              body: "Keep adjusting as data changes — so the ACOS result holds after the first win, not just on a good week.",
+            },
+          ],
+        },
+      },
+      {
+        type: "outcomes",
+        content: {
+          label: "The numbers",
+          title: "ACOS down ~66%. Sales still up.",
+          subtitle:
+            "The outcome that matters for paid acquisition: advertising got cheaper and more efficient while the business kept growing.",
+          bullets: [
+            {
+              title: "122% → 42% ACOS",
+              body: "Advertising cost of sale fell by roughly two-thirds over the six-month engagement.",
+            },
+            {
+              title: "Sales grew throughout",
+              body: "Efficiency did not come from starving the account — revenue moved up while waste came out.",
+            },
+            {
+              title: "Scope that earned a larger retainer",
+              body: "Xorora's monthly PPC management fee grew from £750 to £1,600 as results and responsibility expanded.",
+            },
+            {
+              title: "A playbook, not a one-off hack",
+              body: "Structure and ongoing optimization replaced hope-based spending — the foundation for durable ROAS.",
+            },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-uk-rugs-acos-turnaround/rugs-living.png",
+            alt: "Colorful area rug as living-room centerpiece after profitable Amazon UK PPC growth",
+          },
+        },
+      },
+      {
+        type: "results",
+        content: {
+          label: "The takeaway",
+          title: "Profitable Amazon growth without killing the engine",
+          subtitle:
+            "If your Amazon account is scaling into a loss, the fix isn't always 'spend less.' It's spend on what converts — and stop funding what doesn't — without freezing the sales your business needs.",
+          bullets: [
+            {
+              title: "Built for brands already spending at scale",
+              body: "Ideal when volume is real but ACOS has slipped past profitable. We stabilize first, then compound.",
+            },
+            {
+              title: "Measured on sales and ACOS together",
+              body: "We refuse vanity efficiency that only looks good because revenue collapsed.",
+            },
+            {
+              title: "Ready for your next campaign",
+              body: "Book a scoping call. We'll tell you what a turnaround path looks like for your Amazon UK account.",
+            },
+          ],
+          quote: "122% to 42% ACOS. Sales still climbing.",
+          chips:
+            "Services: Amazon PPC · Account audit · Keyword restructuring · Ongoing optimization",
+        },
+      },
+    ],
+  },
+  {
+    slug: "amazon-us-bedding-sku-ppc",
+    title: "~31% ACOS on 60 SKUs — Without Spending the Full Budget",
+    subtitle: "Amazon US · PPC · Bedding",
+    tags: ["Amazon US", "PPC", "Bedding"],
+    category: "amazon",
+    lead: "A major US bedding brand with 3,000+ Amazon SKUs gave Xorora a $10,000 monthly budget for a 60-SKU segment. We didn't try to spend it all. In three months, ACOS landed near 31% on ~$5,500/month — and portfolio growth held.",
+    heroImage: "/assets/case-studies/amazon-us-bedding-sku-ppc/hero.png",
+    headerBg: "/assets/header-bg.jpg",
+    heroUrl: "amazon.com",
+    featured: true,
+    sortOrder: 7,
+    metaTitle: "Amazon US Bedding PPC Case Study — ~31% ACOS | Xorora",
+    metaDescription:
+      "How Xorora managed Amazon PPC for a 60-SKU bedding segment: ~31% ACOS in 3 months, ~$5,500 spend vs a $10,000 budget, growth maintained. See the results.",
+    metrics: [
+      {
+        value: "~31%",
+        label: "ACOS within three months",
+      },
+      {
+        value: "~$5.5k",
+        label: "Monthly spend vs $10k allocated",
+      },
+      {
+        value: "Growth",
+        label: "Portfolio growth held as spend fell",
+      },
+      {
+        value: "3 mo",
+        label: "Engagement to sustained result",
+      },
+    ],
+    sections: [
+      {
+        type: "overview",
+        content: {
+          label: "Overview",
+          title: "A $10,000 ceiling is not a spending target",
+          paragraphs: [
+            "A major US bedding brand with more than 3,000 SKUs live on Amazon brought Xorora in to manage PPC for a defined 60-SKU segment in bedding. The client allocated a $10,000 monthly ad budget to that slice of the catalog.",
+            "Xorora's job was not to empty the budget. It was to spend only what the data justified — and prove the segment could stay profitable even if monthly spend landed well under the ceiling. Three months later, ACOS was about 31% on roughly $5,500 of spend, with growth maintained across the portfolio.",
+          ],
+          meta: [
+            { label: "Market", value: "Amazon US" },
+            { label: "Catalog", value: "3,000+ SKUs brand-wide" },
+            { label: "Scope", value: "60-SKU bedding segment" },
+            { label: "Budget ceiling", value: "$10,000 / month allocated" },
+            { label: "Management fee", value: "~$3,300 / month" },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-us-bedding-sku-ppc/sheets-lifestyle.png",
+            alt: "Made bed with crisp white sheets and duvet in a bright bedroom",
+            url: "amazon.com",
+          },
+        },
+      },
+      {
+        type: "challenge",
+        content: {
+          label: "The tension",
+          title: "Sixty SKUs means overlap is the default, not the exception",
+          subtitle:
+            "At this density, bad structure doesn't leak a little — it cannibalizes dozens of listings at once.",
+          bullets: [
+            {
+              title: "Keyword overlap across the segment",
+              body: "Products competed with each other for the same queries, inflating CPCs and muddying which SKU actually deserved the click.",
+            },
+            {
+              title: "Budget cannibalization risk",
+              body: "A misallocated dollar didn't hurt one listing — it pulled oxygen from many listings in the same category.",
+            },
+            {
+              title: "Pressure to 'use' the $10k",
+              body: "The working assumption was that the allocated budget was a target to hit. Xorora's mandate was the opposite: prove profitability even if spend came in under the ceiling.",
+            },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-us-bedding-sku-ppc/sheets-folded.png",
+            alt: "Folded white and ivory cotton bed sheets with visible weave texture",
+          },
+        },
+      },
+      {
+        type: "solution",
+        content: {
+          label: "What we did",
+          title: "Product-level performance over budget theater",
+          subtitle:
+            "Campaign structure, targeting, and bids rebuilt around what each SKU earned — not how much budget was left to burn.",
+          pipeline:
+            "Own the 60-SKU segment → Rebuild structure on product data → Fund winners, starve losers → Track growth at SKU level",
+          bullets: [
+            {
+              title: "Structure around products, not the ceiling",
+              body: "Campaigns and targeting rebuilt so spend followed profitable SKUs and keywords — not a monthly 'spend it' ritual.",
+            },
+            {
+              title: "Leave money on the table on purpose",
+              body: "When data said stop, we stopped — including leaving allocated budget unspent rather than buying empty clicks.",
+            },
+            {
+              title: "Pull back what didn't pay",
+              body: "Underperforming keywords and products lost budget fast so winners could scale without cross-SKU noise.",
+            },
+            {
+              title: "Prove growth while spend fell",
+              body: "SKU-level tracking confirmed the portfolio kept growing as monthly spend settled near $5,500 — not $10,000.",
+            },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-us-bedding-sku-ppc/sheets-pillowcases.png",
+            alt: "Sage and white pillowcases and flat sheets folded on a wooden dresser",
+          },
+        },
+      },
+      {
+        type: "architecture",
+        content: {
+          label: "How the engagement ran",
+          title: "Four moves that replaced budget theater with profit logic",
+          items: [
+            {
+              title: "Segment ownership",
+              body: "Full PPC ownership of the 60-SKU bedding slice — one team accountable for structure, bids, and outcomes.",
+            },
+            {
+              title: "Product-level rebuild",
+              body: "Campaigns and targeting redesigned around how each SKU actually performed, not how budgets were traditionally split.",
+            },
+            {
+              title: "Profit-led spend",
+              body: "Money followed return. Unprofitable paths lost fuel — even when that meant underspending the allocation.",
+            },
+            {
+              title: "SKU-level proof",
+              body: "Growth and efficiency tracked per product so 'saving budget' never meant 'losing the catalog.'",
+            },
+          ],
+        },
+      },
+      {
+        type: "outcomes",
+        content: {
+          label: "The numbers",
+          title: "~31% ACOS. ~$4,500 left unspent. Growth held.",
+          subtitle:
+            "The paid-ads story: you don't need to max the budget to grow a multi-SKU Amazon segment — you need to spend what the data earns.",
+          bullets: [
+            {
+              title: "~31% ACOS in three months",
+              body: "Advertising efficiency landed in a profitable band without a six-month slog to get there.",
+            },
+            {
+              title: "~$5,500 monthly spend",
+              body: "About $4,500 under the $10,000 allocated ceiling — by design, not by accident.",
+            },
+            {
+              title: "Portfolio growth maintained",
+              body: "Cutting empty spend did not stall the 60-SKU segment. Growth held across the same three months.",
+            },
+            {
+              title: "~$3,300 / month management",
+              body: "A clear retainer for a clearly scoped segment — results tied to efficiency, not budget burn.",
+            },
+          ],
+          image: {
+            src: "/assets/case-studies/amazon-us-bedding-sku-ppc/sheets-stack.png",
+            alt: "Stacked fitted sheets, flat sheets, and pillowcases after efficient Amazon PPC",
+          },
+        },
+      },
+      {
+        type: "results",
+        content: {
+          label: "The takeaway",
+          title: "Multi-SKU Amazon PPC that respects the P&L",
+          subtitle:
+            "If your brand is funding Amazon ads to hit a budget number instead of a profit number, this is the pattern: structure by product, spend what converts, and prove growth without emptying the wallet.",
+          bullets: [
+            {
+              title: "Built for catalogs, not single ASINs",
+              body: "Especially strong when keyword overlap and cannibalization are already eating margin across a segment.",
+            },
+            {
+              title: "Underspend is a feature",
+              body: "Leaving allocated budget unused is a win when the alternative is buying ACOS you can't defend.",
+            },
+            {
+              title: "Ready for your next campaign",
+              body: "Book a scoping call. We'll map what a profit-led plan looks like for your Amazon US catalog.",
+            },
+          ],
+          quote: "~31% ACOS. Half the budget ceiling. Growth intact.",
+          chips:
+            "Services: Amazon PPC · Multi-SKU structure · Bid strategy · Spend discipline",
+        },
+      },
+    ],
+  },
   ...seedMarketingCaseStudies,
   ...withUniqueIndustryImageList(seedIndustryCaseStudies),
 ];
