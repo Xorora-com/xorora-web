@@ -10,15 +10,16 @@ import { listPublishedBlogPosts } from "@/lib/blog";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog | Xorora",
+  title: "Engineering Blog | Guides, Comparisons & Production AI | Xorora",
   description:
-    "Engineering notes on software development, Python, and production AI from the Xorora team. Comparisons, practices, and lessons from the systems we build.",
+    "Field notes on shipping production software — comparisons, practices, and lessons from the systems we build.",
   keywords: [
     "software development blog",
     "python development companies",
     "top python web development company",
     "top node js development company",
     "node.js development companies",
+    "custom AI development services",
   ],
   alternates: { canonical: "/blog" },
 };

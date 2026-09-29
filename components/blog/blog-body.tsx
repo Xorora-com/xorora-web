@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Rss } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -9,6 +9,7 @@ import { BLOG_CATEGORIES, type BlogCategory, type BlogPost } from "@/lib/blog";
 import {
   BLOG_CARD_IMAGE_SIZES,
   BLOG_FEATURE_IMAGE_QUALITY,
+  BLOG_HERO_IMAGE_SIZES,
 } from "@/lib/blog/image";
 import { blogImageAlt, blogImageTitle } from "@/lib/image-seo";
 import { ROUTES } from "@/lib/navigation";
@@ -21,98 +22,134 @@ interface BlogBodyProps {
 export function BlogBody({ posts }: BlogBodyProps) {
   const [category, setCategory] = useState<BlogCategory>("All posts");
 
-  const counts = useMemo(() => {
-    const map: Record<string, number> = {};
-    for (const post of posts) {
-      map[post.cat] = (map[post.cat] ?? 0) + 1;
-    }
-    return map;
+  const featuredPost = useMemo(() => {
+    return (
+      posts.find((post) => post.featured) ??
+      posts[0] ??
+      null
+    );
   }, [posts]);
 
-  const filteredPosts =
-    category === "All posts"
-      ? posts
-      : posts.filter((post) => post.cat === category);
+  const topicLabels = useMemo(() => {
+    return BLOG_CATEGORIES.map((cat) =>
+      cat === "All posts" ? "All" : cat,
+    );
+  }, []);
+
+  const filteredPosts = useMemo(() => {
+    const base =
+      category === "All posts"
+        ? posts
+        : posts.filter((post) => post.cat === category);
+
+    // Keep featured in the grid too (Crest pattern); or exclude for cleaner list.
+    // Crest shows featured both as hero and again in grid — we'll exclude from grid
+    // when viewing All to avoid duplicate, but include when filtered by category.
+    if (category === "All posts" && featuredPost) {
+      return base.filter((post) => post.id !== featuredPost.id);
+    }
+    return base;
+  }, [posts, category, featuredPost]);
+
+  const articleCount =
+    category === "All posts" ? posts.length : filteredPosts.length;
 
   return (
-    <LightSection bg="var(--surface)">
-      <div className="blog-body-grid grid grid-cols-[256px_1fr] items-start gap-[clamp(28px,4vw,56px)]">
-        <aside className="blog-sidebar sticky top-[100px]">
-          <div className="mb-4 font-mono text-[11px] text-fg3 uppercase tracking-[0.16em]">
-            Categories
-          </div>
-          <div className="blog-cats flex flex-col gap-1">
-            {BLOG_CATEGORIES.map((cat) => {
+    <LightSection bg="var(--surface)" className="!pt-0">
+      {featuredPost && category === "All posts" ? (
+        <FeaturedPost post={featuredPost} />
+      ) : null}
+
+      <div className="mb-7 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="mb-3 font-mono text-[11px] text-fg3 uppercase tracking-[0.16em]">
+            Topic
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {BLOG_CATEGORIES.map((cat, index) => {
               const active = category === cat;
-              const count =
-                cat === "All posts" ? posts.length : (counts[cat] ?? 0);
               return (
                 <button
                   key={cat}
                   type="button"
                   onClick={() => setCategory(cat)}
                   className={cn(
-                    "flex w-full cursor-pointer items-center justify-between gap-2.5 rounded-(--r-md) border border-transparent px-3.5 py-[11px] text-left font-sans text-[14.5px] transition-all duration-150",
+                    "cursor-pointer rounded-pill border px-4 py-2 font-sans text-[13.5px] transition-colors duration-150",
                     active
-                      ? "bg-indigo-50 font-semibold text-xo-indigo"
-                      : "bg-transparent font-medium text-fg2 hover:bg-slate-50",
+                      ? "border-navy-900 bg-navy-900 font-semibold text-white"
+                      : "border-border bg-white font-medium text-fg2 hover:border-border-strong hover:text-fg1",
                   )}
                 >
-                  <span>{cat}</span>
-                  <span
-                    className={cn(
-                      "font-mono text-[11.5px]",
-                      active ? "text-xo-indigo" : "text-slate-400",
-                    )}
-                  >
-                    {count}
-                  </span>
+                  {topicLabels[index]}
                 </button>
               );
             })}
           </div>
-          <div className="relative mt-7 overflow-hidden rounded-(--r-lg) bg-navy-900 p-[clamp(20px,2.4vw,26px)]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_80%_at_100%_0%,rgba(70,76,159,0.4),transparent_60%)]" />
-            <div className="relative">
-              <Rss
-                className="mb-3 h-[22px] w-[22px] text-tangerine-400"
-                aria-hidden
-              />
-              <div className="mb-1.5 font-sans font-semibold text-base text-white">
-                Never miss a post
-              </div>
-              <p className="mb-3.5 font-sans text-[13px] text-white/60 leading-snug">
-                One engineering note a month. No spam.
-              </p>
-              <a
-                href="#blog-news"
-                className="inline-flex items-center gap-[7px] font-sans font-semibold text-[13.5px] text-tangerine-400 no-underline"
-              >
-                Subscribe
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-              </a>
-            </div>
-          </div>
-        </aside>
-
-        <div>
-          <div className="mb-6 flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="m-0 font-bold font-sans text-[clamp(22px,2.6vw,30px)] text-fg1 tracking-[-0.015em]">
-              {category}
-            </h2>
-            <span className="font-sans text-fg3 text-sm">
-              {filteredPosts.length} article
-              {filteredPosts.length === 1 ? "" : "s"}
-            </span>
-          </div>
-          <div className="blog-posts-grid grid grid-cols-1 gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2">
-            {filteredPosts.map((post) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
-          </div>
         </div>
+        <span className="font-sans text-fg3 text-sm sm:pt-7">
+          {articleCount} article{articleCount === 1 ? "" : "s"}
+        </span>
       </div>
+
+      {filteredPosts.length === 0 ? (
+        <p className="rounded-(--r-lg) border border-border bg-white px-6 py-10 text-center font-sans text-[15px] text-fg3">
+          No articles in this topic yet.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
+          {filteredPosts.map((post) => (
+            <BlogCard key={post.id} post={post} />
+          ))}
+        </div>
+      )}
     </LightSection>
+  );
+}
+
+function FeaturedPost({ post }: { post: BlogPost }) {
+  return (
+    <Link
+      href={ROUTES.blogPost(post.slug)}
+      className={cn(
+        "group mb-[clamp(36px,5vw,56px)] grid overflow-hidden rounded-(--r-xl) border border-border bg-white no-underline shadow-xs",
+        "transition-all duration-220 ease-in-out",
+        "hover:border-border-strong hover:shadow-md",
+        "lg:grid-cols-[1.15fr_0.85fr]",
+      )}
+    >
+      <div className="relative aspect-[16/10] overflow-hidden bg-white lg:aspect-auto lg:min-h-[360px]">
+        <Image
+          src={post.img}
+          alt={blogImageAlt(post.title)}
+          title={blogImageTitle(post.excerpt, post.cat)}
+          fill
+          priority
+          quality={BLOG_FEATURE_IMAGE_QUALITY}
+          sizes={BLOG_HERO_IMAGE_SIZES}
+          className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+        />
+      </div>
+      <div className="flex flex-col justify-center p-[clamp(24px,3.5vw,40px)]">
+        <p className="mb-4 font-mono text-[11px] text-tangerine-600 uppercase tracking-[0.14em]">
+          Featured · {post.cat}
+        </p>
+        <h2 className="mb-3 font-bold font-sans text-[clamp(24px,3vw,34px)] text-fg1 leading-snug tracking-[-0.02em]">
+          {post.title}
+        </h2>
+        <p className="mb-5 line-clamp-3 font-sans text-[15.5px] text-fg2 leading-relaxed">
+          {post.excerpt}
+        </p>
+        <div className="mb-6 flex flex-wrap items-center gap-2.5 font-sans text-[13px] text-fg3">
+          <span>{post.read} read</span>
+          <span className="h-[3px] w-[3px] rounded-full bg-slate-300" />
+          <span>{post.date}</span>
+        </div>
+        <span className="inline-flex items-center gap-2 font-sans font-semibold text-[14.5px] text-accent transition-colors duration-150 group-hover:text-tangerine-600">
+          Read article
+          <ArrowRight className="h-4 w-4" aria-hidden />
+        </span>
+      </div>
+    </Link>
   );
 }
 
@@ -121,7 +158,7 @@ function BlogCard({ post }: { post: BlogPost }) {
     <Link
       href={ROUTES.blogPost(post.slug)}
       className={cn(
-        "blog-card group flex h-full flex-col overflow-hidden rounded-(--r-lg) border border-border bg-surface no-underline shadow-xs",
+        "blog-card group flex h-full flex-col overflow-hidden rounded-(--r-lg) border border-border bg-white no-underline shadow-xs",
         "transition-all duration-220 ease-in-out",
         "hover:translate-y-[-3px] hover:border-border-strong hover:shadow-md",
       )}
@@ -140,22 +177,18 @@ function BlogCard({ post }: { post: BlogPost }) {
           {post.cat}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-[clamp(20px,2.5vw,28px)]">
-        <div className="mb-2.5 flex items-center gap-2.5 font-sans text-[12.5px] text-fg3">
-          <span>{post.date}</span>
-          <span className="h-[3px] w-[3px] rounded-full bg-slate-300" />
-          <span>{post.read} read</span>
-        </div>
-        <h3 className="mb-2 font-sans font-semibold text-[clamp(18px,2vw,22px)] text-fg1 leading-snug tracking-[-0.01em]">
+      <div className="flex flex-1 flex-col p-[clamp(18px,2.2vw,24px)]">
+        <h3 className="mb-2 font-sans font-semibold text-[clamp(17px,1.8vw,20px)] text-fg1 leading-snug tracking-[-0.01em]">
           {post.title}
         </h3>
-        <p className="m-0 line-clamp-3 flex-1 font-sans text-[14.5px] text-fg2 leading-relaxed">
+        <p className="m-0 mb-4 line-clamp-3 flex-1 font-sans text-[14px] text-fg2 leading-relaxed">
           {post.excerpt}
         </p>
-        <span className="mt-4 inline-flex items-center gap-[7px] font-sans font-semibold text-accent text-sm transition-colors duration-150 group-hover:text-tangerine-600">
-          Read article
-          <ArrowRight className="h-[15px] w-[15px]" aria-hidden />
-        </span>
+        <div className="flex items-center gap-2.5 font-sans text-[12.5px] text-fg3">
+          <span>{post.read} read</span>
+          <span className="h-[3px] w-[3px] rounded-full bg-slate-300" />
+          <span>{post.date}</span>
+        </div>
       </div>
     </Link>
   );
