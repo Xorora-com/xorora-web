@@ -19,6 +19,17 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920, 2048, 2400],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 640, 750],
   },
+  async headers() {
+    return [
+      {
+        source: "/assets/_noindex/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       ...legacyRedirectsForNextConfig(),
