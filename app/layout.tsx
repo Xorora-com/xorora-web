@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
+import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { ConnectedMegaNav, LetsTalkModalProvider } from "@/components/modals";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import { CLARITY_PROJECT_ID } from "@/lib/clarity";
 import { jetbrainsMono, poppins } from "@/lib/fonts";
-import { TAWK_EMBED_SRC } from "@/lib/tawk";
 import {
   buildFooterColumns,
   buildSiteNavigation,
 } from "@/lib/navigation/server";
 import { SITE_URL } from "@/lib/site-url";
 import { GOOGLE_SITE_VERIFICATION } from "@/lib/site-verification";
+import { TAWK_EMBED_SRC } from "@/lib/tawk";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -43,6 +44,7 @@ export default async function RootLayout({
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-navy-900 font-sans text-white">
+        <ScrollProgress />
         <LetsTalkModalProvider industryNames={industryNames}>
           <ConnectedMegaNav nav={nav} />
           <main className="flex flex-1 flex-col">{children}</main>

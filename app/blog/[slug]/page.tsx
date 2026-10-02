@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogPostLayout } from "@/components/blog/post";
-import { type BlogPost, getPublishedBlogPostBySlug } from "@/lib/blog";
+import {
+  type BlogPost,
+  getBlogAuthor,
+  getPublishedBlogPostBySlug,
+} from "@/lib/blog";
 import {
   type BlogArticleDefinition,
   getBlogArticle,
@@ -27,12 +31,14 @@ export async function generateMetadata({
   }
 
   const url = ROUTES.blogPost(slug);
+  const author = getBlogAuthor(post.authorSlug);
 
   return {
     title: article.seoTitle,
     description: article.seoDescription,
     keywords: article.keywords,
     alternates: { canonical: url },
+    authors: [{ name: author.name, url: ROUTES.author(author.slug) }],
     openGraph: {
       title: article.seoTitle,
       description: article.seoDescription,
@@ -57,6 +63,8 @@ function buildJsonLd(post: BlogPost, article: BlogArticleDefinition) {
   const image = post.img.startsWith("http")
     ? post.img
     : `${SITE_URL}${post.img}`;
+  const author = getBlogAuthor(post.authorSlug);
+  const authorUrl = `${SITE_URL}${ROUTES.author(author.slug)}`;
 
   const blogPosting = {
     "@type": "BlogPosting",
@@ -68,7 +76,12 @@ function buildJsonLd(post: BlogPost, article: BlogArticleDefinition) {
     dateModified: post.updatedAt.toISOString(),
     mainEntityOfPage: url,
     url,
-    author: { "@type": "Organization", name: "Xorora", url: SITE_URL },
+    author: {
+      "@type": "Person",
+      name: author.name,
+      url: authorUrl,
+      jobTitle: author.title,
+    },
     publisher: { "@type": "Organization", name: "Xorora", url: SITE_URL },
     articleSection: post.cat,
   };

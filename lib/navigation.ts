@@ -65,6 +65,7 @@ export const ROUTES = {
   ourWork: "/our-work",
   caseStudy: (slug: string) => `/case-studies/${slug}`,
   blogPost: (slug: string) => `/blog/${slug}`,
+  author: (slug: string) => `/author/${slug}`,
   industry: (slug: string) => `/industries/${slug}`,
   losono: "/solutions/losono",
   clearbeam: "/solutions/clearbeam",

@@ -7,6 +7,8 @@ export interface BlogSeedPost {
   date: string;
   img: string;
   featured?: boolean;
+  /** Defaults to DEFAULT_BLOG_AUTHOR_SLUG when omitted */
+  authorSlug?: string;
 }
 
 export const BLOG_POSTS: BlogSeedPost[] = [

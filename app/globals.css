@@ -723,8 +723,41 @@
   }
 }
 
-::-webkit-scrollbar {
-  display: none;
+/* Scrollbar: visible on desktop, hidden on mobile */
+@media (max-width: 820px) {
+  html {
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (min-width: 821px) {
+  html {
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--tangerine-500) var(--slate-200);
+  }
+
+  html::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--slate-100);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: var(--tangerine-500);
+    border-radius: 999px;
+    border: 2px solid var(--slate-100);
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: var(--tangerine-600);
+  }
 }
 
 /* About page */

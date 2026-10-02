@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BlogAuthorByline } from "@/components/blog/blog-author-byline";
 import { BlogNewsletter } from "@/components/blog/blog-newsletter";
 import type { BlogArticleMeta } from "@/lib/blog/article-types";
 import { BLOG_HERO_IMAGE_SIZES } from "@/lib/blog/image";
@@ -44,9 +45,10 @@ export function BlogPostLayout({
             <h1 className="m-0 mb-5 max-w-[920px] text-balance font-extrabold font-sans text-[clamp(32px,4.6vw,56px)] text-fg1 leading-[1.08] tracking-[-0.03em]">
               {post.title}
             </h1>
-            <p className="m-0 max-w-[720px] font-sans text-[clamp(17px,2vw,20px)] text-fg2 leading-relaxed">
+            <p className="m-0 mb-6 max-w-[720px] font-sans text-[clamp(17px,2vw,20px)] text-fg2 leading-relaxed">
               {post.excerpt}
             </p>
+            <BlogAuthorByline authorSlug={post.authorSlug} />
           </div>
         </header>
 

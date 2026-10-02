@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { AMAZON_A_TO_Z_PATH } from "@/lib/amazon-a-to-z";
 import { AMAZON_INDEXED_PATHS } from "@/lib/amazon-a-to-z-seo";
-import { listPublishedBlogPosts } from "@/lib/blog";
+import { listPublishedBlogPosts, listBlogAuthors } from "@/lib/blog";
 import { listPublishedCaseStudies } from "@/lib/case-studies";
 import { getAllIndustrySlugs } from "@/lib/industries";
 import { ROUTES } from "@/lib/navigation";
@@ -91,10 +91,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry(ROUTES.blogPost(post.slug), 0.7, post.publishedAt ?? post.updatedAt),
   );
 
+  const authorRoutes: MetadataRoute.Sitemap = listBlogAuthors().map((author) =>
+    entry(ROUTES.author(author.slug), 0.5),
+  );
+
   return [
     ...staticRoutes,
     ...industryRoutes,
     ...caseStudyRoutes,
     ...blogPostRoutes,
+    ...authorRoutes,
   ];
 }

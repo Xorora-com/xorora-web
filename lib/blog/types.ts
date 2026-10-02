@@ -8,6 +8,7 @@ export interface BlogPost {
   date: string;
   img: string;
   featured: boolean;
+  authorSlug: string;
   publishedAt: Date | null;
   updatedAt: Date;
 }
