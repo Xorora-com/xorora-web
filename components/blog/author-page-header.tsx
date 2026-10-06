@@ -17,7 +17,7 @@ export function AuthorPageHeader({
   const initials = getAuthorInitials(author.name);
 
   return (
-    <section className="relative mt-[-72px] overflow-x-hidden pt-[72px]">
+    <section className="relative overflow-x-clip">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -39,7 +39,7 @@ export function AuthorPageHeader({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(45%_60%_at_88%_40%,rgba(70,76,159,0.12),transparent_70%)]"
       />
 
-      <div className="relative mx-auto grid max-w-[1180px] items-end gap-8 px-8 pt-[clamp(88px,11vw,128px)] pb-0 lg:grid-cols-[minmax(0,1fr)_minmax(300px,440px)] lg:gap-10">
+      <div className="relative mx-auto grid max-w-[1180px] items-end gap-8 px-8 pt-[clamp(112px,16vw,148px)] pb-0 lg:grid-cols-[minmax(0,1fr)_minmax(300px,440px)] lg:gap-10">
         <div className="pb-[clamp(40px,6vw,64px)]">
           <BlogBreadcrumb
             className="mb-7"
@@ -80,7 +80,7 @@ export function AuthorPageHeader({
           </p>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-[400px] items-end justify-center self-end lg:mx-0 lg:max-w-none">
+        <div className="relative mx-auto flex w-full max-w-[360px] items-end justify-center self-end lg:mx-0 lg:max-w-none">
           {author.avatar ? (
             <Image
               src={author.avatar}
@@ -88,8 +88,8 @@ export function AuthorPageHeader({
               width={512}
               height={637}
               priority
-              className="h-[clamp(340px,48vw,500px)] w-auto max-w-full object-contain object-bottom drop-shadow-[0_18px_40px_rgba(26,28,58,0.18)]"
-              sizes="(max-width: 1024px) 340px, 440px"
+              className="h-[clamp(300px,40vw,460px)] w-auto max-w-full object-contain object-bottom drop-shadow-[0_18px_40px_rgba(26,28,58,0.18)]"
+              sizes="(max-width: 1024px) 300px, 420px"
             />
           ) : (
             <div className="mb-6 flex h-[220px] w-[220px] items-center justify-center rounded-full bg-indigo-100 font-sans font-bold text-[56px] text-xo-indigo">
