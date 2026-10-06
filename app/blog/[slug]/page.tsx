@@ -5,6 +5,7 @@ import {
   type BlogPost,
   getBlogAuthor,
   getPublishedBlogPostBySlug,
+  listRelatedBlogPosts,
 } from "@/lib/blog";
 import {
   type BlogArticleDefinition,
@@ -96,7 +97,13 @@ function buildJsonLd(post: BlogPost, article: BlogArticleDefinition) {
         name: "Blog",
         item: `${SITE_URL}${ROUTES.blog}`,
       },
-      { "@type": "ListItem", position: 3, name: article.seoTitle, item: url },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.cat,
+        item: `${SITE_URL}${ROUTES.blog}`,
+      },
+      { "@type": "ListItem", position: 4, name: article.seoTitle, item: url },
     ],
   };
 
@@ -134,6 +141,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const relatedPosts = await listRelatedBlogPosts(post.slug, post.cat);
   const jsonLd = buildJsonLd(post, article);
   const Article = article.Article;
 
@@ -148,6 +156,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         post={post}
         article={article}
         shareUrl={ROUTES.blogPost(slug)}
+        relatedPosts={relatedPosts}
       >
         <Article />
       </BlogPostLayout>

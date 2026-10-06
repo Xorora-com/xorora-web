@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BlogCardGrid } from "@/components/blog/blog-card-grid";
+import { BlogArticleList } from "@/components/blog/blog-article-list";
+import { BlogBreadcrumb } from "@/components/blog/blog-breadcrumb";
 import { LightSection } from "@/components/case-study/light-section";
 import {
   getAuthorInitials,
@@ -68,6 +69,21 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
     ...(author.linkedIn ? { sameAs: [author.linkedIn] } : {}),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${SITE_URL}${ROUTES.blog}`,
+      },
+      { "@type": "ListItem", position: 3, name: author.name, item: authorUrl },
+    ],
+  };
+
   return (
     <>
       <script
@@ -75,11 +91,20 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <section className="bg-surface px-8 pt-[clamp(120px,14vw,160px)] pb-10">
         <div className="mx-auto max-w-[900px]">
-          <p className="mb-4 font-mono text-[11px] text-tangerine-600 uppercase tracking-[0.16em]">
-            Author
-          </p>
+          <BlogBreadcrumb
+            items={[
+              { label: "Home", href: ROUTES.home },
+              { label: "Blog", href: ROUTES.blog },
+              { label: author.name },
+            ]}
+          />
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
             {author.avatar ? (
               <Image
@@ -104,11 +129,8 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
               <p className="m-0 mb-4 font-sans font-semibold text-[16px] text-xo-indigo">
                 {author.title}
               </p>
-              <p className="m-0 max-w-[640px] font-sans text-[16.5px] text-fg2 leading-relaxed">
-                {author.bio}
-              </p>
               {author.linkedIn ? (
-                <p className="mt-4">
+                <p className="mb-4">
                   <Link
                     href={author.linkedIn}
                     target="_blank"
@@ -119,6 +141,9 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                   </Link>
                 </p>
               ) : null}
+              <p className="m-0 max-w-[640px] font-sans text-[16.5px] text-fg2 leading-relaxed">
+                {author.bio}
+              </p>
             </div>
           </div>
         </div>
@@ -138,7 +163,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
             {posts.length} article{posts.length === 1 ? "" : "s"}
           </span>
         </div>
-        <BlogCardGrid posts={posts} hideAuthor />
+        <BlogArticleList posts={posts} initialCount={9} />
       </LightSection>
     </>
   );

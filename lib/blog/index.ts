@@ -2,6 +2,7 @@ export {
   getPublishedBlogPostBySlug,
   listPublishedBlogPosts,
   listPublishedBlogPostsByAuthor,
+  listRelatedBlogPosts,
 } from "./queries";
 export {
   DEFAULT_BLOG_AUTHOR_SLUG,

@@ -108,6 +108,17 @@ export async function listPublishedBlogPostsByAuthor(
   return posts.filter((post) => post.authorSlug === authorSlug);
 }
 
+export async function listRelatedBlogPosts(
+  slug: string,
+  category: string,
+  limit = 3,
+): Promise<BlogPost[]> {
+  const posts = await listPublishedBlogPosts();
+  return posts
+    .filter((post) => post.slug !== slug && post.cat === category)
+    .slice(0, limit);
+}
+
 export async function getPublishedBlogPostBySlug(
   slug: string,
 ): Promise<BlogPost | null> {
