@@ -1,7 +1,8 @@
+import { ArrowUpRight, Linkedin } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { AuthorAvatar } from "@/components/blog/author-avatar";
 import { BlogBreadcrumb } from "@/components/blog/blog-breadcrumb";
-import type { BlogAuthor } from "@/lib/blog/authors";
+import { getAuthorInitials, type BlogAuthor } from "@/lib/blog/authors";
 import { ROUTES } from "@/lib/navigation";
 
 interface AuthorPageHeaderProps {
@@ -13,76 +14,88 @@ export function AuthorPageHeader({
   author,
   articleCount,
 }: AuthorPageHeaderProps) {
+  const initials = getAuthorInitials(author.name);
+
   return (
-    <section className="relative overflow-hidden bg-surface">
+    <section className="relative mt-[-72px] overflow-hidden pt-[72px]">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[clamp(200px,28vw,280px)]"
+        className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(135deg, #1a1c3a 0%, #2f336b 42%, #464c9f 78%, #6b70b6 100%)",
+            "linear-gradient(105deg, #f6f7fb 0%, #eeeff8 38%, #dddff0 72%, #eeeff8 100%)",
         }}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(60%_80%_at_15%_20%,rgba(255,255,255,0.14),transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(50%_70%_at_90%_10%,rgba(242,107,33,0.22),transparent_60%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-surface" />
-      </div>
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-[20%] right-[-8%] h-[140%] w-[58%] rotate-[-18deg] rounded-[48px] bg-indigo-100/70"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[8%] right-[18%] h-[70%] w-[36%] rotate-[-18deg] rounded-[40px] bg-indigo-200/35"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(45%_60%_at_88%_40%,rgba(70,76,159,0.12),transparent_70%)]"
+      />
 
-      <div className="relative mx-auto max-w-[900px] px-8 pt-[clamp(112px,14vw,148px)] pb-10">
-        <BlogBreadcrumb
-          tone="onDark"
-          className="mb-8"
-          items={[
-            { label: "Home", href: ROUTES.home },
-            { label: "Blog", href: ROUTES.blog },
-            { label: author.name },
-          ]}
-        />
+      <div className="relative mx-auto grid max-w-[1180px] items-end gap-8 px-8 pt-[clamp(48px,7vw,72px)] pb-0 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:gap-10">
+        <div className="pb-[clamp(40px,6vw,64px)]">
+          <BlogBreadcrumb
+            className="mb-7"
+            items={[
+              { label: "Home", href: ROUTES.home },
+              { label: "Blog", href: ROUTES.blog },
+              { label: author.name },
+            ]}
+          />
 
-        <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-end sm:text-left">
-          <div className="relative shrink-0 rounded-full bg-surface p-1.5 shadow-[0_12px_32px_rgba(8,8,13,0.18)]">
-            <AuthorAvatar author={author} size={148} />
+          <h1 className="m-0 mb-3 max-w-[520px] font-extrabold font-sans text-[clamp(36px,5vw,56px)] text-indigo-800 leading-[1.05] tracking-[-0.03em]">
+            {author.name}
+          </h1>
+          <p className="m-0 mb-7 font-sans font-medium text-[clamp(17px,2vw,20px)] text-indigo-700">
+            {author.title}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3">
+            {author.linkedIn ? (
+              <Link
+                href={author.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 rounded-(--r-md) bg-indigo-800 px-4 py-3 font-sans font-semibold text-[14.5px] text-white no-underline shadow-sm transition-colors hover:bg-indigo-700"
+              >
+                <Linkedin className="h-4 w-4" aria-hidden />
+                LinkedIn Profile
+                <ArrowUpRight className="h-4 w-4 opacity-90" aria-hidden />
+              </Link>
+            ) : null}
+            <span className="font-sans text-[14px] text-fg3">
+              {articleCount} article{articleCount === 1 ? "" : "s"}
+            </span>
           </div>
 
-          <div className="min-w-0 flex-1 pb-1">
-            <p className="m-0 mb-2 font-mono text-[11px] text-tangerine-600 uppercase tracking-[0.16em]">
-              Author
-            </p>
-            <h1 className="m-0 mb-2 font-extrabold font-sans text-[clamp(32px,4vw,48px)] text-fg1 tracking-[-0.03em]">
-              {author.name}
-            </h1>
-            <div className="mb-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:justify-start">
-              <p className="m-0 font-sans font-semibold text-[16px] text-xo-indigo">
-                {author.title}
-              </p>
-              <span
-                aria-hidden
-                className="hidden h-1 w-1 rounded-full bg-slate-300 sm:inline-block"
-              />
-              <span className="font-sans text-[14px] text-fg3">
-                {articleCount} article{articleCount === 1 ? "" : "s"}
-              </span>
-              {author.linkedIn ? (
-                <>
-                  <span
-                    aria-hidden
-                    className="hidden h-1 w-1 rounded-full bg-slate-300 sm:inline-block"
-                  />
-                  <Link
-                    href={author.linkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans font-semibold text-[14px] text-accent no-underline hover:text-tangerine-600"
-                  >
-                    LinkedIn
-                  </Link>
-                </>
-              ) : null}
+          <p className="mt-7 mb-0 max-w-[540px] font-sans text-[16px] text-fg2 leading-relaxed">
+            {author.bio}
+          </p>
+        </div>
+
+        <div className="relative mx-auto flex h-[clamp(280px,42vw,420px)] w-full max-w-[400px] items-end justify-center lg:mx-0 lg:max-w-none">
+          {author.avatar ? (
+            <Image
+              src={author.avatar}
+              alt={author.name}
+              width={512}
+              height={637}
+              priority
+              className="h-full w-auto max-w-full object-contain object-bottom drop-shadow-[0_18px_40px_rgba(26,28,58,0.18)]"
+              sizes="(max-width: 1024px) 320px, 420px"
+            />
+          ) : (
+            <div className="mb-6 flex h-[220px] w-[220px] items-center justify-center rounded-full bg-indigo-100 font-sans font-bold text-[56px] text-xo-indigo">
+              {initials}
             </div>
-            <p className="m-0 mx-auto max-w-[640px] font-sans text-[16.5px] text-fg2 leading-relaxed sm:mx-0">
-              {author.bio}
-            </p>
-          </div>
+          )}
         </div>
       </div>
     </section>
