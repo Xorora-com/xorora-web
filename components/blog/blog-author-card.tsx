@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { getAuthorInitials, getBlogAuthor } from "@/lib/blog/authors";
+import { AuthorAvatar } from "@/components/blog/author-avatar";
+import { getBlogAuthor } from "@/lib/blog/authors";
 import { ROUTES } from "@/lib/navigation";
 
 interface BlogAuthorCardProps {
@@ -27,7 +27,6 @@ export function BlogAuthorCard({
   updatedAt,
 }: BlogAuthorCardProps) {
   const author = getBlogAuthor(authorSlug);
-  const initials = getAuthorInitials(author.name);
   const [expanded, setExpanded] = useState(false);
   const longBio = author.bio.length > 120;
   const preview = longBio ? `${author.bio.slice(0, 110).trimEnd()}…` : author.bio;
@@ -36,22 +35,7 @@ export function BlogAuthorCard({
 
   return (
     <div className="flex flex-col gap-5 rounded-(--r-lg) border border-border bg-white p-5 sm:flex-row sm:items-start">
-      {author.avatar ? (
-        <Image
-          src={author.avatar}
-          alt={author.name}
-          width={72}
-          height={72}
-          className="h-[72px] w-[72px] shrink-0 rounded-full object-cover"
-        />
-      ) : (
-        <span
-          className="inline-flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-full bg-indigo-100 font-sans font-bold text-[22px] text-xo-indigo"
-          aria-hidden
-        >
-          {initials}
-        </span>
-      )}
+      <AuthorAvatar author={author} size={72} />
       <div className="min-w-0 flex-1">
         <Link
           href={ROUTES.author(author.slug)}
@@ -60,6 +44,18 @@ export function BlogAuthorCard({
           {author.name}
         </Link>
         <p className="m-0 mt-0.5 font-sans text-[13.5px] text-xo-indigo">{author.title}</p>
+        {author.linkedIn ? (
+          <p className="m-0 mt-2">
+            <a
+              href={author.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans font-semibold text-[13.5px] text-accent no-underline hover:text-tangerine-600"
+            >
+              LinkedIn profile
+            </a>
+          </p>
+        ) : null}
         <p className="m-0 mt-3 font-sans text-[14.5px] text-fg2 leading-relaxed">
           {expanded || !longBio ? author.bio : preview}{" "}
           {longBio ? (

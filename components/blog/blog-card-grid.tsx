@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { BlogAuthorByline } from "@/components/blog/blog-author-byline";
 import type { BlogPost } from "@/lib/blog";
 import {
@@ -16,9 +17,19 @@ interface BlogCardGridProps {
   posts: BlogPost[];
   /** Hide author chip when already on an author profile */
   hideAuthor?: boolean;
+  /** Show this many first; omit to show all */
+  initialCount?: number;
 }
 
-export function BlogCardGrid({ posts, hideAuthor = false }: BlogCardGridProps) {
+export function BlogCardGrid({
+  posts,
+  hideAuthor = false,
+  initialCount,
+}: BlogCardGridProps) {
+  const [visible, setVisible] = useState(initialCount ?? posts.length);
+  const shown = posts.slice(0, visible);
+  const hasMore = visible < posts.length;
+
   if (posts.length === 0) {
     return (
       <p className="rounded-(--r-lg) border border-border bg-white px-6 py-10 text-center font-sans text-[15px] text-fg3">
@@ -28,10 +39,23 @@ export function BlogCardGrid({ posts, hideAuthor = false }: BlogCardGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => (
-        <BlogCard key={post.id} post={post} hideAuthor={hideAuthor} />
-      ))}
+    <div>
+      <div className="grid grid-cols-1 gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
+        {shown.map((post) => (
+          <BlogCard key={post.id} post={post} hideAuthor={hideAuthor} />
+        ))}
+      </div>
+      {hasMore ? (
+        <div className="mt-8 text-center">
+          <button
+            type="button"
+            onClick={() => setVisible(posts.length)}
+            className="cursor-pointer rounded-pill border border-navy-900 bg-navy-900 px-6 py-2.5 font-sans font-semibold text-[14px] text-white transition-colors hover:bg-navy-800"
+          >
+            Load more
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

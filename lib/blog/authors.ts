@@ -17,6 +17,7 @@ const BLOG_AUTHORS: Record<string, BlogAuthor> = {
     title: "Content Strategist at Xorora",
     bio: "Alex Rivera writes about AI development, software delivery, and how agencies and product teams ship practical automation. Placeholder bio — details and photo coming soon.",
     avatar: "",
+    linkedIn: "https://www.linkedin.com/",
   },
 };
 

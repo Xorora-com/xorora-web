@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BlogArticleList } from "@/components/blog/blog-article-list";
+import { AuthorAvatar } from "@/components/blog/author-avatar";
 import { BlogBreadcrumb } from "@/components/blog/blog-breadcrumb";
+import { BlogCardGrid } from "@/components/blog/blog-card-grid";
 import { LightSection } from "@/components/case-study/light-section";
 import {
-  getAuthorInitials,
   getBlogAuthor,
   listBlogAuthors,
   listPublishedBlogPostsByAuthor,
@@ -51,7 +50,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
 
   const author = getBlogAuthor(slug);
   const posts = await listPublishedBlogPostsByAuthor(author.slug);
-  const initials = getAuthorInitials(author.name);
   const authorUrl = `${SITE_URL}${ROUTES.author(author.slug)}`;
 
   const jsonLd = {
@@ -106,22 +104,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
             ]}
           />
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-            {author.avatar ? (
-              <Image
-                src={author.avatar}
-                alt={author.name}
-                width={112}
-                height={112}
-                className="h-28 w-28 rounded-full border border-border object-cover"
-              />
-            ) : (
-              <span
-                className="inline-flex h-28 w-28 shrink-0 items-center justify-center rounded-full border border-indigo-100 bg-indigo-50 font-sans font-bold text-[32px] text-xo-indigo"
-                aria-hidden
-              >
-                {initials}
-              </span>
-            )}
+            <AuthorAvatar author={author} size={112} />
             <div>
               <h1 className="m-0 mb-2 font-extrabold font-sans text-[clamp(32px,4vw,48px)] text-fg1 tracking-[-0.03em]">
                 {author.name}
@@ -163,7 +146,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
             {posts.length} article{posts.length === 1 ? "" : "s"}
           </span>
         </div>
-        <BlogArticleList posts={posts} initialCount={9} />
+        <BlogCardGrid posts={posts} hideAuthor initialCount={9} />
       </LightSection>
     </>
   );
