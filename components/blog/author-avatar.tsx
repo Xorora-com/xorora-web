@@ -20,7 +20,9 @@ export function AuthorAvatar({ author, size = 112 }: AuthorAvatarProps) {
           alt={author.name}
           width={size}
           height={size}
-          className="h-full w-full rounded-full border border-border object-cover"
+          className="h-full w-full rounded-full border-2 border-white object-cover object-[center_18%] shadow-sm"
+          sizes={`${size}px`}
+          priority={size >= 112}
         />
       ) : (
         <span

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AuthorAvatar } from "@/components/blog/author-avatar";
-import { BlogBreadcrumb } from "@/components/blog/blog-breadcrumb";
+import { AuthorPageHeader } from "@/components/blog/author-page-header";
 import { BlogCardGrid } from "@/components/blog/blog-card-grid";
 import { LightSection } from "@/components/case-study/light-section";
 import {
@@ -65,6 +63,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
       url: SITE_URL,
     },
     ...(author.linkedIn ? { sameAs: [author.linkedIn] } : {}),
+    ...(author.avatar ? { image: `${SITE_URL}${author.avatar}` } : {}),
   };
 
   const breadcrumbJsonLd = {
@@ -94,45 +93,9 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <section className="bg-surface px-8 pt-[clamp(120px,14vw,160px)] pb-10">
-        <div className="mx-auto max-w-[900px]">
-          <BlogBreadcrumb
-            items={[
-              { label: "Home", href: ROUTES.home },
-              { label: "Blog", href: ROUTES.blog },
-              { label: author.name },
-            ]}
-          />
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-            <AuthorAvatar author={author} size={112} />
-            <div>
-              <h1 className="m-0 mb-2 font-extrabold font-sans text-[clamp(32px,4vw,48px)] text-fg1 tracking-[-0.03em]">
-                {author.name}
-              </h1>
-              <p className="m-0 mb-4 font-sans font-semibold text-[16px] text-xo-indigo">
-                {author.title}
-              </p>
-              {author.linkedIn ? (
-                <p className="mb-4">
-                  <Link
-                    href={author.linkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans font-semibold text-[14.5px] text-accent no-underline hover:text-tangerine-600"
-                  >
-                    LinkedIn profile
-                  </Link>
-                </p>
-              ) : null}
-              <p className="m-0 max-w-[640px] font-sans text-[16.5px] text-fg2 leading-relaxed">
-                {author.bio}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AuthorPageHeader author={author} articleCount={posts.length} />
 
-      <LightSection bg="var(--surface)" className="!pt-0">
+      <LightSection bg="var(--surface)" className="!pt-2">
         <div className="mb-7 flex items-end justify-between gap-4">
           <div>
             <p className="mb-2 font-mono text-[11px] text-fg3 uppercase tracking-[0.16em]">
