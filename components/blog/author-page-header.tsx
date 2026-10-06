@@ -39,10 +39,10 @@ export function AuthorPageHeader({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(45%_60%_at_88%_40%,rgba(70,76,159,0.12),transparent_70%)]"
       />
 
-      <div className="relative mx-auto grid max-w-[1180px] items-end gap-8 px-8 pt-[clamp(112px,16vw,148px)] pb-0 lg:grid-cols-[minmax(0,1fr)_minmax(300px,440px)] lg:gap-10">
-        <div className="pb-[clamp(40px,6vw,64px)]">
+      <div className="relative mx-auto grid max-w-[1180px] items-end gap-6 px-8 pt-[clamp(112px,16vw,148px)] pb-0 sm:gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,420px)] lg:gap-10">
+        <div className="order-2 pb-[clamp(36px,5vw,64px)] lg:order-1">
           <BlogBreadcrumb
-            className="mb-7"
+            className="mb-6 sm:mb-7"
             items={[
               { label: "Home", href: ROUTES.home },
               { label: "Blog", href: ROUTES.blog },
@@ -53,7 +53,7 @@ export function AuthorPageHeader({
           <h1 className="m-0 mb-3 max-w-[520px] font-extrabold font-sans text-[clamp(36px,5vw,56px)] text-indigo-800 leading-[1.05] tracking-[-0.03em]">
             {author.name}
           </h1>
-          <p className="m-0 mb-7 font-sans font-medium text-[clamp(17px,2vw,20px)] text-indigo-700">
+          <p className="m-0 mb-6 font-sans font-medium text-[clamp(17px,2vw,20px)] text-indigo-700 sm:mb-7">
             {author.title}
           </p>
 
@@ -75,12 +75,12 @@ export function AuthorPageHeader({
             </span>
           </div>
 
-          <p className="mt-7 mb-0 max-w-[540px] font-sans text-[16px] text-fg2 leading-relaxed">
+          <p className="mt-6 mb-0 max-w-[540px] font-sans text-[16px] text-fg2 leading-relaxed sm:mt-7">
             {author.bio}
           </p>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-[360px] items-end justify-center self-end lg:mx-0 lg:max-w-none">
+        <div className="relative order-1 mx-auto flex w-full max-w-[300px] items-end justify-center self-end sm:max-w-[340px] lg:order-2 lg:mx-0 lg:max-w-none">
           {author.avatar ? (
             <Image
               src={author.avatar}
@@ -88,11 +88,11 @@ export function AuthorPageHeader({
               width={512}
               height={637}
               priority
-              className="h-[clamp(300px,40vw,460px)] w-auto max-w-full object-contain object-bottom drop-shadow-[0_18px_40px_rgba(26,28,58,0.18)]"
+              className="h-[clamp(260px,55vw,420px)] w-auto max-w-full object-contain object-bottom drop-shadow-[0_18px_40px_rgba(26,28,58,0.18)] lg:h-[clamp(340px,42vw,460px)]"
               sizes="(max-width: 1024px) 300px, 420px"
             />
           ) : (
-            <div className="mb-6 flex h-[220px] w-[220px] items-center justify-center rounded-full bg-indigo-100 font-sans font-bold text-[56px] text-xo-indigo">
+            <div className="mb-6 flex h-[200px] w-[200px] items-center justify-center rounded-full bg-indigo-100 font-sans font-bold text-[56px] text-xo-indigo">
               {initials}
             </div>
           )}
