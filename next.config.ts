@@ -34,6 +34,11 @@ const nextConfig: NextConfig = {
     return [
       ...legacyRedirectsForNextConfig(),
       {
+        source: "/author/alex-rivera",
+        destination: "/author/zarrar-ahmad",
+        permanent: true,
+      },
+      {
         source: "/data-ai",
         destination: "/ai",
         permanent: true,

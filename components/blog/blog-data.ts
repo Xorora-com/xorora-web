@@ -22,6 +22,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     date: "Oct 2, 2026",
     img: "/assets/blog/best-custom-ai-firms-saas-products-compared-2026.png",
     featured: true,
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "best-ai-agent-providers-agency-client-automation-2026",
@@ -32,6 +33,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Sep 30, 2026",
     img: "/assets/blog/best-ai-agent-providers-agency-client-automation-2026.png",
+    authorSlug: "zubair-shakoor",
   },
   {
     slug: "complete-guide-custom-ai-services-smbs-2026",
@@ -42,6 +44,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "11 min",
     date: "Sep 14, 2026",
     img: "/assets/blog/complete-guide-custom-ai-services-smbs-2026.png",
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "best-ai-saas-development-companies-compared-2026",
@@ -52,6 +55,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Sep 14, 2026",
     img: "/assets/blog/best-ai-saas-development-companies-compared-2026.png",
+    authorSlug: "zubair-shakoor",
   },
   {
     slug: "best-ai-agent-services-agency-copilots-2026",
@@ -62,6 +66,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Sep 10, 2026",
     img: "/assets/blog/best-ai-agent-services-agency-copilots-2026.png",
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "best-ai-development-partners-marketing-agencies-2026",
@@ -72,6 +77,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Sep 10, 2026",
     img: "/assets/blog/best-ai-development-partners-marketing-agencies-2026.png",
+    authorSlug: "zubair-shakoor",
   },
   {
     slug: "best-ai-analytics-tools-amazon-sellers-2026",
@@ -82,6 +88,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "11 min",
     date: "Sep 7, 2026",
     img: "/assets/blog/best-ai-analytics-tools-amazon-sellers-2026.png",
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "best-ai-agent-development-companies-saas-2026",
@@ -92,6 +99,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Sep 7, 2026",
     img: "/assets/blog/best-ai-agent-development-companies-saas-2026.png",
+    authorSlug: "zubair-shakoor",
   },
   {
     slug: "python-application-development-guide-2026",
@@ -102,6 +110,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "10 min",
     date: "Sep 1, 2026",
     img: "/assets/blog/python-application-development-guide-2026-hero.png",
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "best-java-development-companies-startups-2026",
@@ -112,6 +121,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "13 min",
     date: "Aug 28, 2026",
     img: "/assets/blog/best-java-development-companies-startups-2026.png",
+    authorSlug: "zubair-shakoor",
   },
   {
     slug: "flutter-vs-react-native-comparison",
@@ -123,6 +133,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "11 min",
     date: "Aug 27, 2026",
     img: "/assets/blog/flutter-vs-react-native-comparison.png",
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "top-3-django-development-companies-2026",
@@ -133,6 +144,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "10 min",
     date: "Aug 24, 2026",
     img: "/assets/blog/top-3-django-development-companies-2026.png",
+    authorSlug: "zubair-shakoor",
   },
   {
     slug: "net-vs-java-comparison-use-cases-pros-and-cons",
@@ -143,6 +155,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Aug 24, 2026",
     img: "/assets/blog/net-vs-java-comparison.png",
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "top-5-laravel-development-companies-2026",
@@ -153,6 +166,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "11 min",
     date: "Aug 20, 2026",
     img: "/assets/blog/top-5-laravel-development-companies-2026.png",
+    authorSlug: "zubair-shakoor",
   },
   {
     slug: "top-nodejs-development-companies-2026",
@@ -163,6 +177,7 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "12 min",
     date: "Aug 19, 2026",
     img: "/assets/blog/top-nodejs-development-companies-2026.png",
+    authorSlug: "zarrar-ahmad",
   },
   {
     slug: "top-10-python-development-companies-in-usa-2026",
@@ -173,5 +188,6 @@ export const BLOG_POSTS: BlogSeedPost[] = [
     read: "14 min",
     date: "Aug 18, 2026",
     img: "/assets/blog/top-10-python-development-companies-usa-2026.png",
+    authorSlug: "zubair-shakoor",
   },
 ];

@@ -8,14 +8,22 @@ export interface BlogAuthor {
   linkedIn?: string;
 }
 
-export const DEFAULT_BLOG_AUTHOR_SLUG = "alex-rivera";
+export const DEFAULT_BLOG_AUTHOR_SLUG = "zarrar-ahmad";
 
 const BLOG_AUTHORS: Record<string, BlogAuthor> = {
-  [DEFAULT_BLOG_AUTHOR_SLUG]: {
-    slug: DEFAULT_BLOG_AUTHOR_SLUG,
-    name: "Alex Rivera",
-    title: "Content Strategist at Xorora",
-    bio: "Alex Rivera writes about AI development, software delivery, and how agencies and product teams ship practical automation. Placeholder bio — details and photo coming soon.",
+  "zarrar-ahmad": {
+    slug: "zarrar-ahmad",
+    name: "Zarrar Ahmad",
+    title: "Software Development at Xorora",
+    bio: "Zarrar Ahmad writes about custom software, AI product delivery, and how engineering teams choose the right development partner. Placeholder bio — details and photo coming soon.",
+    avatar: "",
+    linkedIn: "https://www.linkedin.com/",
+  },
+  "zubair-shakoor": {
+    slug: "zubair-shakoor",
+    name: "Zubair Shakoor",
+    title: "Software Development at Xorora",
+    bio: "Zubair Shakoor writes about software engineering, frameworks, and practical comparisons for teams shipping production systems. Placeholder bio — details and photo coming soon.",
     avatar: "",
     linkedIn: "https://www.linkedin.com/",
   },
