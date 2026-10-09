@@ -19,7 +19,7 @@ const BLOG_AUTHORS: Record<string, BlogAuthor> = {
     name: "Zarrar Ahmad",
     title: "Software Development at Xorora",
     bio: "Zarrar Ahmad writes about custom software, AI product delivery, and how engineering teams choose the right development partner. Results-driven IT specialist with expertise in network administration, cloud computing, and building scalable digital solutions.",
-    avatar: "",
+    avatar: "/assets/blog/authors/zarrar-ahmad.png",
     linkedIn: "https://www.linkedin.com/in/zarrar-ahmad-401461179/",
   },
   "zubair-shakoor": {

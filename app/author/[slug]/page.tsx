@@ -95,19 +95,14 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
       />
       <AuthorPageHeader author={author} articleCount={posts.length} />
 
-      <LightSection bg="var(--surface)" className="!pt-2">
-        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
-          <div className="min-w-0">
-            <p className="mb-2 font-mono text-[11px] text-fg3 uppercase tracking-[0.16em]">
-              Blogs
-            </p>
-            <h2 className="m-0 font-bold font-sans text-[clamp(24px,3vw,32px)] text-fg1 tracking-[-0.02em]">
-              Articles by {author.name}
-            </h2>
-          </div>
-          <span className="shrink-0 font-sans text-fg3 text-sm">
-            {posts.length} article{posts.length === 1 ? "" : "s"}
-          </span>
+      <LightSection bg="var(--surface)" className="relative z-10 !pt-8">
+        <div className="mb-7">
+          <p className="mb-2 font-mono text-[11px] text-fg3 uppercase tracking-[0.16em]">
+            Blogs
+          </p>
+          <h2 className="m-0 font-bold font-sans text-[clamp(24px,3vw,32px)] text-fg1 tracking-[-0.02em]">
+            Articles by {author.name}
+          </h2>
         </div>
         <BlogCardGrid posts={posts} hideAuthor initialCount={9} />
       </LightSection>

@@ -40,11 +40,9 @@ export function BlogCardGrid({
 
   return (
     <div>
-      <div className="grid grid-cols-1 items-stretch gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 items-start gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((post) => (
-          <div key={post.id} className="flex h-full min-h-0">
-            <BlogCard post={post} hideAuthor={hideAuthor} />
-          </div>
+          <BlogCard key={post.id} post={post} hideAuthor={hideAuthor} />
         ))}
       </div>
       {hasMore ? (
@@ -73,9 +71,9 @@ function BlogCard({
     <Link
       href={ROUTES.blogPost(post.slug)}
       className={cn(
-        "blog-card group flex h-full w-full flex-col overflow-hidden rounded-(--r-lg) border border-border bg-white no-underline shadow-xs",
-        "transition-all duration-220 ease-in-out",
-        "hover:translate-y-[-3px] hover:border-border-strong hover:shadow-md",
+        "blog-card group flex h-full flex-col overflow-hidden rounded-(--r-lg) border border-border bg-white no-underline shadow-xs",
+        "transition-[border-color,box-shadow] duration-220 ease-in-out",
+        "hover:border-border-strong hover:shadow-md",
       )}
     >
       <div className="blog-card-media relative aspect-video w-full shrink-0 overflow-hidden bg-white">
@@ -92,11 +90,11 @@ function BlogCard({
           {post.cat}
         </span>
       </div>
-      <div className="flex min-h-0 flex-1 flex-col p-[clamp(18px,2.2vw,24px)]">
-        <h3 className="mb-2 line-clamp-2 min-h-[2.6em] font-sans font-semibold text-[clamp(17px,1.8vw,20px)] text-fg1 leading-snug tracking-[-0.01em]">
+      <div className="flex flex-1 flex-col p-[clamp(18px,2.2vw,24px)]">
+        <h3 className="mb-2 line-clamp-2 font-sans font-semibold text-[clamp(17px,1.8vw,20px)] text-fg1 leading-snug tracking-[-0.01em]">
           {post.title}
         </h3>
-        <p className="m-0 mb-4 line-clamp-3 min-h-[4.2em] flex-1 font-sans text-[14px] text-fg2 leading-relaxed">
+        <p className="m-0 mb-4 line-clamp-3 flex-1 font-sans text-[14px] text-fg2 leading-relaxed">
           {post.excerpt}
         </p>
         <div className="mt-auto flex flex-col gap-3">
