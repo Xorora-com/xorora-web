@@ -7,7 +7,11 @@ export interface BlogSeedPost {
   date: string;
   img: string;
   featured?: boolean;
-  /** Defaults to DEFAULT_BLOG_AUTHOR_SLUG when omitted */
+  /**
+   * Optional explicit author. When omitted:
+   * - Digital Marketing / Marketing → Waqas Raza or Bilal Khan
+   * - otherwise → DEFAULT_BLOG_AUTHOR_SLUG (Zarrar Ahmad)
+   */
   authorSlug?: string;
 }
 

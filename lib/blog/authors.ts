@@ -10,6 +10,9 @@ export interface BlogAuthor {
 
 export const DEFAULT_BLOG_AUTHOR_SLUG = "zarrar-ahmad";
 
+/** Rotated onto Marketing / Digital Marketing posts when authorSlug is omitted. */
+export const MARKETING_BLOG_AUTHOR_SLUGS = ["waqas-raza", "bilal-khan"] as const;
+
 const BLOG_AUTHORS: Record<string, BlogAuthor> = {
   "zarrar-ahmad": {
     slug: "zarrar-ahmad",
@@ -23,9 +26,25 @@ const BLOG_AUTHORS: Record<string, BlogAuthor> = {
     slug: "zubair-shakoor",
     name: "Zubair Shakoor",
     title: "Software Development at Xorora",
-    bio: "Zubair Shakoor writes about software engineering, frameworks, and practical comparisons for teams shipping production systems. Placeholder bio — details and photo coming soon.",
-    avatar: "",
-    linkedIn: "https://www.linkedin.com/",
+    bio: "Zubair Shakoor writes about software engineering, frameworks, and practical comparisons for teams shipping production systems. AI-first senior engineer with 8+ years of experience building scalable backend systems.",
+    avatar: "/assets/blog/authors/zubair-shakoor.jpg",
+    linkedIn: "https://www.linkedin.com/in/zubair-shakoor-733216a2/",
+  },
+  "waqas-raza": {
+    slug: "waqas-raza",
+    name: "Waqas Raza",
+    title: "Digital Marketing at Xorora",
+    bio: "Waqas Raza writes about digital marketing, SEO, paid media, and performance strategy for growing businesses. Performance marketer passionate about helping teams make smarter marketing decisions.",
+    avatar: "/assets/blog/authors/waqas-raza.jpg",
+    linkedIn: "https://www.linkedin.com/in/waqas-raza-marketing/",
+  },
+  "bilal-khan": {
+    slug: "bilal-khan",
+    name: "Bilal Khan",
+    title: "Digital Marketing at Xorora",
+    bio: "Bilal Khan writes about digital marketing strategy, growth, and tech-sector demand generation. Experienced marketing leader specializing in tech sectors to drive growth.",
+    avatar: "/assets/blog/authors/bilal-khan.jpg",
+    linkedIn: "https://www.linkedin.com/in/mbilalkkhan/",
   },
 };
 
@@ -47,4 +66,50 @@ export function getAuthorInitials(name: string): string {
     .slice(0, 2)
     .map((part) => part[0]?.toUpperCase() ?? "")
     .join("");
+}
+
+/** True for Marketing / Digital Marketing (and close variants). */
+export function isMarketingBlogCategory(category?: string | null): boolean {
+  if (!category) return false;
+  const normalized = category.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  if (!normalized) return false;
+  if (normalized.includes("digital marketing")) return true;
+  if (normalized === "marketing") return true;
+  if (normalized.startsWith("marketing ")) return true;
+  if (normalized.endsWith(" marketing")) return true;
+  return /\bmarketing\b/.test(normalized);
+}
+
+function pickAuthorSlug(slugs: readonly string[], salt: string): string {
+  let hash = 0;
+  for (let i = 0; i < salt.length; i += 1) {
+    hash = (hash * 31 + salt.charCodeAt(i)) >>> 0;
+  }
+  return slugs[hash % slugs.length] ?? slugs[0];
+}
+
+/**
+ * Resolve which author appears on a post.
+ * Explicit authorSlug wins; otherwise Marketing / Digital Marketing posts
+ * rotate between Waqas Raza and Bilal Khan.
+ */
+export function resolveBlogAuthorSlug(options: {
+  authorSlug?: string | null;
+  category?: string | null;
+  /** Stable salt for rotation — usually the post slug */
+  salt?: string | null;
+}): string {
+  const explicit = options.authorSlug?.trim();
+  if (explicit && BLOG_AUTHORS[explicit]) {
+    return explicit;
+  }
+
+  if (isMarketingBlogCategory(options.category)) {
+    return pickAuthorSlug(
+      MARKETING_BLOG_AUTHOR_SLUGS,
+      options.salt?.trim() || options.category?.trim() || "marketing",
+    );
+  }
+
+  return DEFAULT_BLOG_AUTHOR_SLUG;
 }

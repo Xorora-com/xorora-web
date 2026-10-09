@@ -2,7 +2,7 @@ import { and, asc, eq } from "drizzle-orm";
 import { BLOG_POSTS } from "@/components/blog/blog-data";
 import { db, hasDatabaseUrl } from "@/lib/db";
 import { blogPosts } from "@/lib/db/schema";
-import { DEFAULT_BLOG_AUTHOR_SLUG } from "./authors";
+import { resolveBlogAuthorSlug } from "./authors";
 import type { BlogPost } from "./types";
 
 function formatDate(date: Date | null): string {
@@ -12,10 +12,6 @@ function formatDate(date: Date | null): string {
     day: "numeric",
     year: "numeric",
   });
-}
-
-function resolveAuthorSlug(slug?: string | null): string {
-  return slug?.trim() || DEFAULT_BLOG_AUTHOR_SLUG;
 }
 
 function mapPost(
@@ -32,7 +28,11 @@ function mapPost(
     date: formatDate(row.publishedAt),
     img: row.image,
     featured: row.featured === 1,
-    authorSlug: resolveAuthorSlug(authorSlug),
+    authorSlug: resolveBlogAuthorSlug({
+      authorSlug,
+      category: row.category,
+      salt: row.slug,
+    }),
     publishedAt: row.publishedAt,
     updatedAt: row.updatedAt,
   };
@@ -50,7 +50,11 @@ function mapSeedPost(post: (typeof BLOG_POSTS)[number]): BlogPost {
     date: post.date,
     img: post.img,
     featured: Boolean(post.featured),
-    authorSlug: resolveAuthorSlug(post.authorSlug),
+    authorSlug: resolveBlogAuthorSlug({
+      authorSlug: post.authorSlug,
+      category: post.cat,
+      salt: post.slug,
+    }),
     publishedAt: Number.isNaN(publishedAt.getTime()) ? null : publishedAt,
     updatedAt: Number.isNaN(publishedAt.getTime()) ? new Date() : publishedAt,
   };

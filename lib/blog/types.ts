@@ -13,6 +13,10 @@ export interface BlogPost {
   updatedAt: Date;
 }
 
-export const BLOG_CATEGORIES = ["All posts", "Software Development"] as const;
+export const BLOG_CATEGORIES = [
+  "All posts",
+  "Software Development",
+  "Digital Marketing",
+] as const;
 
 export type BlogCategory = (typeof BLOG_CATEGORIES)[number];
