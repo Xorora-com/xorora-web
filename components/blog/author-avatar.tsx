@@ -6,11 +6,18 @@ import { cn } from "@/lib/utils";
 interface AuthorAvatarProps {
   author: BlogAuthor;
   size?: number;
+  /** Hide the LinkedIn badge overlay (e.g. when a LinkedIn button is shown nearby) */
+  showLinkedInBadge?: boolean;
 }
 
-export function AuthorAvatar({ author, size = 112 }: AuthorAvatarProps) {
+export function AuthorAvatar({
+  author,
+  size = 112,
+  showLinkedInBadge = true,
+}: AuthorAvatarProps) {
   const initials = getAuthorInitials(author.name);
   const linkedIn = author.linkedIn;
+  const showBadge = Boolean(showLinkedInBadge && linkedIn);
 
   return (
     <div className="relative shrink-0" style={{ width: size, height: size }}>
@@ -26,14 +33,14 @@ export function AuthorAvatar({ author, size = 112 }: AuthorAvatarProps) {
         />
       ) : (
         <span
-          className="inline-flex h-full w-full items-center justify-center rounded-full border border-indigo-100 bg-indigo-50 font-sans font-bold text-xo-indigo"
+          className="inline-flex h-full w-full items-center justify-center rounded-full border-2 border-white bg-indigo-50 font-sans font-bold text-xo-indigo shadow-sm"
           style={{ fontSize: Math.round(size * 0.28) }}
           aria-hidden
         >
           {initials}
         </span>
       )}
-      {linkedIn ? (
+      {showBadge ? (
         <a
           href={linkedIn}
           target="_blank"
@@ -48,10 +55,7 @@ export function AuthorAvatar({ author, size = 112 }: AuthorAvatarProps) {
             height: Math.max(28, Math.round(size * 0.32)),
           }}
         >
-          <Linkedin
-            className="h-[55%] w-[55%]"
-            aria-hidden
-          />
+          <Linkedin className="h-[55%] w-[55%]" aria-hidden />
         </a>
       ) : null}
     </div>

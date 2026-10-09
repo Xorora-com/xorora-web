@@ -40,9 +40,11 @@ export function BlogCardGrid({
 
   return (
     <div>
-      <div className="grid auto-rows-fr grid-cols-1 items-stretch gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 items-stretch gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((post) => (
-          <BlogCard key={post.id} post={post} hideAuthor={hideAuthor} />
+          <div key={post.id} className="flex h-full min-h-0">
+            <BlogCard post={post} hideAuthor={hideAuthor} />
+          </div>
         ))}
       </div>
       {hasMore ? (
@@ -71,7 +73,7 @@ function BlogCard({
     <Link
       href={ROUTES.blogPost(post.slug)}
       className={cn(
-        "blog-card group flex h-full flex-col overflow-hidden rounded-(--r-lg) border border-border bg-white no-underline shadow-xs",
+        "blog-card group flex h-full w-full flex-col overflow-hidden rounded-(--r-lg) border border-border bg-white no-underline shadow-xs",
         "transition-all duration-220 ease-in-out",
         "hover:translate-y-[-3px] hover:border-border-strong hover:shadow-md",
       )}

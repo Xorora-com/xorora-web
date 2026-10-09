@@ -43,18 +43,22 @@ export function AuthorPageHeader({
           ]}
         />
 
-        <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:gap-8 sm:text-left">
-          <AuthorAvatar author={author} size={128} />
+        <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:gap-8 sm:text-left">
+          <AuthorAvatar
+            author={author}
+            size={112}
+            showLinkedInBadge={false}
+          />
 
           <div className="min-w-0 flex-1">
             <h1 className="m-0 mb-2 font-extrabold font-sans text-[clamp(32px,4.5vw,48px)] text-indigo-800 leading-[1.05] tracking-[-0.03em]">
               {author.name}
             </h1>
-            <p className="m-0 mb-5 font-sans font-medium text-[clamp(16px,2vw,18px)] text-indigo-700">
+            <p className="m-0 mb-4 font-sans font-medium text-[clamp(16px,2vw,18px)] text-indigo-700">
               {author.title}
             </p>
 
-            <div className="mb-5 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
+            <div className="mb-4 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
               {author.linkedIn ? (
                 <Link
                   href={author.linkedIn}
@@ -67,7 +71,7 @@ export function AuthorPageHeader({
                   <ArrowUpRight className="h-4 w-4 opacity-90" aria-hidden />
                 </Link>
               ) : null}
-              <span className="font-sans text-[14px] text-fg3">
+              <span className="inline-flex items-center rounded-(--r-md) border border-indigo-200/80 bg-white/70 px-3 py-2 font-sans text-[13.5px] text-fg3">
                 {articleCount} article{articleCount === 1 ? "" : "s"}
               </span>
             </div>

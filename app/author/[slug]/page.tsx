@@ -96,8 +96,8 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
       <AuthorPageHeader author={author} articleCount={posts.length} />
 
       <LightSection bg="var(--surface)" className="!pt-2">
-        <div className="mb-7 flex items-end justify-between gap-4">
-          <div>
+        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
+          <div className="min-w-0">
             <p className="mb-2 font-mono text-[11px] text-fg3 uppercase tracking-[0.16em]">
               Blogs
             </p>
@@ -105,7 +105,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
               Articles by {author.name}
             </h2>
           </div>
-          <span className="font-sans text-fg3 text-sm">
+          <span className="shrink-0 font-sans text-fg3 text-sm">
             {posts.length} article{posts.length === 1 ? "" : "s"}
           </span>
         </div>
