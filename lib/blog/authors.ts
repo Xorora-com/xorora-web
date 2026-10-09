@@ -19,7 +19,7 @@ const BLOG_AUTHORS: Record<string, BlogAuthor> = {
     name: "Zarrar Ahmad",
     title: "Software Development at Xorora",
     bio: "Zarrar Ahmad writes about custom software, AI product delivery, and how engineering teams choose the right development partner. Results-driven IT specialist with expertise in network administration, cloud computing, and building scalable digital solutions.",
-    avatar: "/assets/blog/authors/zarrar-ahmad.png",
+    avatar: "",
     linkedIn: "https://www.linkedin.com/in/zarrar-ahmad-401461179/",
   },
   "zubair-shakoor": {
@@ -27,7 +27,7 @@ const BLOG_AUTHORS: Record<string, BlogAuthor> = {
     name: "Zubair Shakoor",
     title: "Software Development at Xorora",
     bio: "Zubair Shakoor writes about software engineering, frameworks, and practical comparisons for teams shipping production systems. AI-first senior engineer with 8+ years of experience building scalable backend systems.",
-    avatar: "/assets/blog/authors/zubair-shakoor.jpg",
+    avatar: "",
     linkedIn: "https://www.linkedin.com/in/zubair-shakoor-733216a2/",
   },
   "waqas-raza": {
@@ -35,7 +35,7 @@ const BLOG_AUTHORS: Record<string, BlogAuthor> = {
     name: "Waqas Raza",
     title: "Digital Marketing at Xorora",
     bio: "Waqas Raza writes about digital marketing, SEO, paid media, and performance strategy for growing businesses. Performance marketer passionate about helping teams make smarter marketing decisions.",
-    avatar: "/assets/blog/authors/waqas-raza.jpg",
+    avatar: "",
     linkedIn: "https://www.linkedin.com/in/waqas-raza-marketing/",
   },
   "bilal-khan": {
@@ -43,7 +43,7 @@ const BLOG_AUTHORS: Record<string, BlogAuthor> = {
     name: "Bilal Khan",
     title: "Digital Marketing at Xorora",
     bio: "Bilal Khan writes about digital marketing strategy, growth, and tech-sector demand generation. Experienced marketing leader specializing in tech sectors to drive growth.",
-    avatar: "/assets/blog/authors/bilal-khan.jpg",
+    avatar: "",
     linkedIn: "https://www.linkedin.com/in/mbilalkkhan/",
   },
 };

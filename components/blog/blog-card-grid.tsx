@@ -40,7 +40,7 @@ export function BlogCardGrid({
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid auto-rows-fr grid-cols-1 items-stretch gap-[clamp(16px,2.5vw,22px)] sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((post) => (
           <BlogCard key={post.id} post={post} hideAuthor={hideAuthor} />
         ))}
@@ -90,21 +90,23 @@ function BlogCard({
           {post.cat}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-[clamp(18px,2.2vw,24px)]">
-        <h3 className="mb-2 font-sans font-semibold text-[clamp(17px,1.8vw,20px)] text-fg1 leading-snug tracking-[-0.01em]">
+      <div className="flex min-h-0 flex-1 flex-col p-[clamp(18px,2.2vw,24px)]">
+        <h3 className="mb-2 line-clamp-2 min-h-[2.6em] font-sans font-semibold text-[clamp(17px,1.8vw,20px)] text-fg1 leading-snug tracking-[-0.01em]">
           {post.title}
         </h3>
-        <p className="m-0 mb-4 line-clamp-3 flex-1 font-sans text-[14px] text-fg2 leading-relaxed">
+        <p className="m-0 mb-4 line-clamp-3 min-h-[4.2em] flex-1 font-sans text-[14px] text-fg2 leading-relaxed">
           {post.excerpt}
         </p>
-        <div className="mb-3 flex items-center gap-2.5 font-sans text-[12.5px] text-fg3">
-          <span>{post.read} read</span>
-          <span className="h-[3px] w-[3px] rounded-full bg-slate-300" />
-          <span>{post.date}</span>
+        <div className="mt-auto flex flex-col gap-3">
+          <div className="flex items-center gap-2.5 font-sans text-[12.5px] text-fg3">
+            <span>{post.read} read</span>
+            <span className="h-[3px] w-[3px] rounded-full bg-slate-300" />
+            <span>{post.date}</span>
+          </div>
+          {hideAuthor ? null : (
+            <BlogAuthorByline authorSlug={post.authorSlug} compact nested />
+          )}
         </div>
-        {hideAuthor ? null : (
-          <BlogAuthorByline authorSlug={post.authorSlug} compact nested />
-        )}
       </div>
     </Link>
   );
