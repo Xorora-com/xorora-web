@@ -11,11 +11,7 @@ import {
 } from "lucide-react";
 import { type FormEvent, useId, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  SITE_EMAIL,
-  SITE_EMAIL_HREF,
-  SITE_PHONES,
-} from "@/lib/contact";
+import { SITE_EMAIL, SITE_EMAIL_HREF, SITE_PHONES } from "@/lib/contact";
 import {
   type FieldErrors,
   FORM_FIELDS,
@@ -51,6 +47,7 @@ const STEPS = [
 const PHONE_SHORT: Record<string, string> = {
   "United States": "US",
   Pakistan: "PK",
+  Australia: "AU",
 };
 
 const fieldClass =
@@ -314,7 +311,9 @@ function Field({
         />
       )}
       {error ? (
-        <span className="font-sans text-[12px] text-[var(--danger)]">{error}</span>
+        <span className="font-sans text-[12px] text-[var(--danger)]">
+          {error}
+        </span>
       ) : null}
     </label>
   );

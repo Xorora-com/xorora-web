@@ -1,15 +1,11 @@
+import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { ContactPageSection } from "@/components/contact/contact-page-section";
 import { SignalRule } from "@/components/geometry/signal-rule";
 import { XWatermark } from "@/components/geometry/x-watermark";
 import { buttonClassName } from "@/lib/button-styles";
-import {
-  SITE_EMAIL,
-  SITE_OFFICES,
-  SITE_PHONES,
-} from "@/lib/contact";
+import { SITE_EMAIL, SITE_OFFICES, SITE_PHONES } from "@/lib/contact";
 import { ROUTES } from "@/lib/navigation";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -29,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Xorora — Tell Us About Your Project",
     description:
-      "Share a few project details and our team will get back within one business day. Offices in Austin and Lahore.",
+      "Share a few project details and our team will get back within one business day. Offices in Austin, Lahore, and Woodstock.",
     url: ROUTES.contact,
     siteName: "Xorora",
     type: "website",

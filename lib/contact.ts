@@ -1,5 +1,5 @@
 /**
- * Shared site contact details — email, phones (US then Pakistan), offices.
+ * Shared site contact details — email, phones (US, Pakistan, Australia), offices.
  */
 
 export const SITE_EMAIL = "info@xorora.com";
@@ -21,6 +21,11 @@ export const SITE_PHONES: SitePhone[] = [
     display: "+92-332-0555328",
     href: "tel:+923320555328",
   },
+  {
+    label: "Australia",
+    display: "+61 435 351 857",
+    href: "tel:+61435351857",
+  },
 ];
 
 export interface SiteOffice {
@@ -36,6 +41,10 @@ export const SITE_OFFICES: SiteOffice[] = [
   {
     city: "Pakistan",
     addr: "Plot # 606, Block F2, Phase 1 Johar Town, Lahore, 54000",
+  },
+  {
+    city: "Australia",
+    addr: "Redheart Crescent, Woodstock VIC 3751, Australia",
   },
 ];
 
