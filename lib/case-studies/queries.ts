@@ -159,24 +159,28 @@ export async function listPublishedCaseStudies(): Promise<CaseStudyListItem[]> {
 }
 
 export async function getFeaturedCaseStudy(): Promise<CaseStudy | null> {
-  const [study] = await db
-    .select()
-    .from(caseStudies)
-    .where(
-      and(
-        eq(caseStudies.status, "published"),
-        eq(caseStudies.featured, 1),
-        notInArray(caseStudies.slug, [...RETIRED_CASE_STUDY_SLUGS]),
-      ),
-    )
-    .orderBy(asc(caseStudies.sortOrder))
-    .limit(1);
+  try {
+    const [study] = await db
+      .select()
+      .from(caseStudies)
+      .where(
+        and(
+          eq(caseStudies.status, "published"),
+          eq(caseStudies.featured, 1),
+          notInArray(caseStudies.slug, [...RETIRED_CASE_STUDY_SLUGS]),
+        ),
+      )
+      .orderBy(asc(caseStudies.sortOrder))
+      .limit(1);
 
-  if (!study) {
+    if (!study) {
+      return null;
+    }
+
+    return applyIndustryImageOverrides(await loadCaseStudyWithRelations(study));
+  } catch {
     return null;
   }
-
-  return applyIndustryImageOverrides(await loadCaseStudyWithRelations(study));
 }
 
 export async function getCaseStudyBySlug(

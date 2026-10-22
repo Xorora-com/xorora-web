@@ -32,31 +32,35 @@ export async function buildSiteNavigation(): Promise<SiteNavigation> {
     return XO_NAV;
   }
 
-  const [industryItems, featuredStudy] = await Promise.all([
-    listPublishedIndustryNavItems(),
-    getFeaturedCaseStudy(),
-  ]);
+  try {
+    const [industryItems, featuredStudy] = await Promise.all([
+      listPublishedIndustryNavItems(),
+      getFeaturedCaseStudy(),
+    ]);
 
-  const industries: NavIndustry[] = industryItems.map((item) => ({
-    name: item.name,
-    icon: item.icon as NavIndustry["icon"],
-    desc: item.desc,
-    href: item.href,
-  }));
+    const industries: NavIndustry[] = industryItems.map((item) => ({
+      name: item.name,
+      icon: item.icon as NavIndustry["icon"],
+      desc: item.desc,
+      href: item.href,
+    }));
 
-  if (!featuredStudy) {
+    if (!featuredStudy) {
+      return {
+        ...XO_NAV,
+        industries,
+        featured: XO_NAV.featured,
+      };
+    }
+
     return {
       ...XO_NAV,
       industries,
-      featured: XO_NAV.featured,
+      featured: mapFeaturedCaseStudy(featuredStudy),
     };
+  } catch {
+    return XO_NAV;
   }
-
-  return {
-    ...XO_NAV,
-    industries,
-    featured: mapFeaturedCaseStudy(featuredStudy),
-  };
 }
 
 export async function listIndustryNavItems(): Promise<NavIndustry[]> {
@@ -64,22 +68,22 @@ export async function listIndustryNavItems(): Promise<NavIndustry[]> {
     return XO_NAV.industries;
   }
 
-  const items = await listPublishedIndustryNavItems();
-  return items.map((item) => ({
-    name: item.name,
-    icon: item.icon as NavIndustry["icon"],
-    desc: item.desc,
-    href: item.href,
-  }));
+  try {
+    const items = await listPublishedIndustryNavItems();
+    return items.map((item) => ({
+      name: item.name,
+      icon: item.icon as NavIndustry["icon"],
+      desc: item.desc,
+      href: item.href,
+    }));
+  } catch {
+    return XO_NAV.industries;
+  }
 }
 
 export async function listIndustryNames(): Promise<string[]> {
-  if (!hasDatabaseUrl()) {
-    return XO_NAV.industries.map((industry) => industry.name);
-  }
-
-  const items = await listPublishedIndustryNavItems();
-  return items.map((item) => item.name);
+  const industries = await listIndustryNavItems();
+  return industries.map((industry) => industry.name);
 }
 
 export async function buildFooterColumns(): Promise<FooterColumn[]> {

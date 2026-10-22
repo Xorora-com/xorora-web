@@ -79,30 +79,34 @@ export async function listPublishedBlogPosts(): Promise<BlogPost[]> {
     return seedPosts();
   }
 
-  const rows = await db
-    .select()
-    .from(blogPosts)
-    .where(eq(blogPosts.status, "published"))
-    .orderBy(asc(blogPosts.sortOrder));
+  try {
+    const rows = await db
+      .select()
+      .from(blogPosts)
+      .where(eq(blogPosts.status, "published"))
+      .orderBy(asc(blogPosts.sortOrder));
 
-  const fromSeed = seedPosts();
-  const fromDb = new Map(
-    rows.map((row) => {
-      const seed = fromSeed.find((post) => post.slug === row.slug);
-      return [row.slug, mapPost(row, seed?.authorSlug)] as const;
-    }),
-  );
-  const listed = fromSeed.map((post) => {
-    const dbPost = fromDb.get(post.slug);
-    return dbPost ? mergeSeedFields(dbPost, post) : post;
-  });
-  const extras = rows
-    .map((row) => {
-      const seed = fromSeed.find((post) => post.slug === row.slug);
-      return mapPost(row, seed?.authorSlug);
-    })
-    .filter((post) => !fromSeed.some((seed) => seed.slug === post.slug));
-  return [...listed, ...extras];
+    const fromSeed = seedPosts();
+    const fromDb = new Map(
+      rows.map((row) => {
+        const seed = fromSeed.find((post) => post.slug === row.slug);
+        return [row.slug, mapPost(row, seed?.authorSlug)] as const;
+      }),
+    );
+    const listed = fromSeed.map((post) => {
+      const dbPost = fromDb.get(post.slug);
+      return dbPost ? mergeSeedFields(dbPost, post) : post;
+    });
+    const extras = rows
+      .map((row) => {
+        const seed = fromSeed.find((post) => post.slug === row.slug);
+        return mapPost(row, seed?.authorSlug);
+      })
+      .filter((post) => !fromSeed.some((seed) => seed.slug === post.slug));
+    return [...listed, ...extras];
+  } catch {
+    return seedPosts();
+  }
 }
 
 export async function listPublishedBlogPostsByAuthor(
@@ -127,16 +131,20 @@ export async function getPublishedBlogPostBySlug(
   slug: string,
 ): Promise<BlogPost | null> {
   if (hasDatabaseUrl()) {
-    const rows = await db
-      .select()
-      .from(blogPosts)
-      .where(and(eq(blogPosts.slug, slug), eq(blogPosts.status, "published")))
-      .limit(1);
+    try {
+      const rows = await db
+        .select()
+        .from(blogPosts)
+        .where(and(eq(blogPosts.slug, slug), eq(blogPosts.status, "published")))
+        .limit(1);
 
-    const row = rows[0];
-    if (row) {
-      const seed = seedPosts().find((post) => post.slug === slug);
-      return mergeSeedFields(mapPost(row, seed?.authorSlug), seed);
+      const row = rows[0];
+      if (row) {
+        const seed = seedPosts().find((post) => post.slug === slug);
+        return mergeSeedFields(mapPost(row, seed?.authorSlug), seed);
+      }
+    } catch {
+      // Fall through to seed posts when Neon is unavailable.
     }
   }
 
