@@ -28,7 +28,7 @@ export function WorkHeader() {
           <SignalRule color="var(--tangerine-400)" className="scale-x-[-1]" />
         </div>
         <h1 className="m-0 mb-6 text-balance font-extrabold font-sans text-[clamp(44px,7vw,92px)] text-white leading-[0.98] tracking-[-0.03em]">
-          Work that&nbsp;
+          Work that{" "}
           <span
             className="bg-clip-text text-transparent"
             style={{
@@ -37,8 +37,8 @@ export function WorkHeader() {
             }}
           >
             ships and scales
-            <span className="text-tangerine-400">.</span>
           </span>
+          <span className="text-tangerine-400">.</span>
         </h1>
         <p className="mx-auto mb-[38px] max-w-[600px] font-sans text-[clamp(17px,2vw,20px)] text-white/72 leading-relaxed">
           Production software, AI platforms, and marketplace launches —

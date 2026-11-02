@@ -25,6 +25,20 @@ export const metadata: Metadata = {
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
   },
+  openGraph: {
+    title: "Xorora — Your AI Development Partner",
+    description:
+      "Production AI and software, built by a partner who ships — from the first prototype to the system your business runs on.",
+    url: SITE_URL,
+    siteName: "Xorora",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Xorora — Your AI Development Partner",
+    description:
+      "Your AI development partner — production AI and software, built by a partner who ships.",
+  },
 };
 
 export default async function RootLayout({
