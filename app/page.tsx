@@ -6,6 +6,7 @@ import {
   V2Engagement,
   V2Hero,
   V2Industries,
+  V2Recognitions,
   V2Services,
   V2Statement,
 } from "@/components/home";
@@ -86,6 +87,7 @@ export default function HomePage() {
       <V2Hero />
       <V2Statement />
       <V2Services />
+      <V2Recognitions />
       <V2Industries />
       <V2Cases />
       <V2Deliver />
