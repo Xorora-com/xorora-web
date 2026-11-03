@@ -5,51 +5,61 @@ const BADGES = [
   {
     src: "/assets/home/recognitions/iso-27001.png",
     alt: "ISO 27001",
-    width: 160,
-    height: 160,
+    label: "ISO 27001 CERTIFIED",
+    width: 200,
+    height: 200,
   },
   {
     src: "/assets/home/recognitions/selected-firms.webp",
     alt: "SelectedFirms Top Software Consulting Company",
-    width: 160,
-    height: 160,
+    label: "TOP SOFTWARE CONSULTING COMPANY",
+    width: 200,
+    height: 200,
   },
   {
     src: "/assets/home/recognitions/goodfirms.png",
     alt: "Recognized on GoodFirms",
-    width: 220,
-    height: 100,
+    label: "RECOGNIZED ON GOODFIRMS",
+    width: 280,
+    height: 128,
   },
   {
     src: "/assets/home/recognitions/clutch-2025.png",
     alt: "Clutch Top Company Software Developers 2025",
-    width: 140,
-    height: 160,
+    label: "CLUTCH TOP SOFTWARE DEVELOPERS 2025",
+    width: 180,
+    height: 200,
   },
 ] as const;
 
 export function V2Recognitions() {
   return (
-    <section className="bg-surface px-8 py-[clamp(56px,7vw,88px)]">
+    <section className="bg-surface px-8 py-[clamp(64px,8vw,100px)]">
       <div className="mx-auto max-w-[1180px]">
         <V2Rise>
-          <h2 className="m-0 mb-[clamp(32px,4vw,48px)] text-center text-balance font-extrabold font-sans text-[clamp(28px,4vw,44px)] text-fg1 leading-tight tracking-tight">
-            We&apos;ve been recognized by the best
+          <h2 className="m-0 mb-[clamp(40px,5vw,64px)] text-center text-balance font-extrabold font-sans text-[clamp(28px,4vw,44px)] text-fg1 leading-tight tracking-tight">
+            We&apos;ve been recognized by the best, year after year
             <span className="text-tangerine-500">.</span>
           </h2>
         </V2Rise>
 
-        <ul className="m-0 grid list-none grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 p-0 sm:grid-cols-4 sm:gap-x-10">
+        <ul className="m-0 grid list-none grid-cols-2 border-border border-t border-l p-0 sm:grid-cols-4">
           {BADGES.map((badge, index) => (
-            <li key={badge.src} className="flex w-full max-w-[180px] items-center justify-center">
-              <V2Rise delay={index * 60} className="flex w-full justify-center">
+            <li
+              key={badge.src}
+              className="flex flex-col items-center justify-start gap-5 border-border border-r border-b px-4 py-[clamp(28px,3.5vw,40px)] text-center sm:px-6"
+            >
+              <V2Rise delay={index * 60} className="flex w-full flex-col items-center gap-5">
+                <span className="min-h-[2.6em] font-mono text-[10.5px] text-fg3 uppercase leading-snug tracking-[0.12em] sm:text-[11px]">
+                  {badge.label}
+                </span>
                 <Image
                   src={badge.src}
                   alt={badge.alt}
                   width={badge.width}
                   height={badge.height}
-                  className="h-[clamp(56px,8vw,80px)] w-auto max-w-full object-contain"
-                  sizes="180px"
+                  className="h-[clamp(96px,12vw,128px)] w-auto max-w-full object-contain"
+                  sizes="(max-width: 640px) 40vw, 200px"
                 />
               </V2Rise>
             </li>
